@@ -26,6 +26,7 @@ public class CloseWindowScript : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnClick()
     {
+        _img.sprite = _normalSprite;
         _window.SetActive(false);
     }
 }

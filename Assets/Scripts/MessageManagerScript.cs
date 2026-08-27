@@ -13,7 +13,6 @@ public class MessageManagerScript : MonoBehaviour
     [SerializeField] private GameObject _messageBox;
     private GameObject _parent;
     private RectTransform _parentTransform;
-    [SerializeField] private Scrollbar _scrollbar;
     public bool IsNewChat { get; private set; } = true;
     private List<GameObject> _messageHistory = new List<GameObject>();
     private Vector3 spawnPos;
@@ -25,9 +24,12 @@ public class MessageManagerScript : MonoBehaviour
         _parent = GameObject.Find("Messages");
         _parentTransform = _parent.GetComponent<RectTransform>();
 
-        SpawnMessage(text: "Hello, how are you?", alignment: "right");
-        SpawnMessage(text: "I'm great, thanks!", alignment: "left");
-        SpawnMessage(text: "Good to hear!", alignment: "right");
+        EventManagerScript.instance.OnSendMessage.AddListener(SpawnMessage);
+    }
+
+    void OnDisable() 
+    {
+        EventManagerScript.instance.OnSendMessage.RemoveListener(SpawnMessage);
     }
 
     private void SpawnMessage(string text, string alignment) // right_x = 439, left_x = -438
@@ -46,13 +48,13 @@ public class MessageManagerScript : MonoBehaviour
         {
             if (alignment == "right")
             {
-                spawnPos = new Vector3(439, 1057, 0);
+                spawnPos = new Vector3(314, 1010, 0);
             }
             else
             {
                 if (alignment == "left")
                 {
-                    spawnPos = new Vector3(-438, 1057, 0);
+                    spawnPos = new Vector3(-312, 1010, 0);
                 }
                 else
                 {
@@ -64,10 +66,18 @@ public class MessageManagerScript : MonoBehaviour
         }
         else
         {
+            float height = 0;
             // calculate _messageHistory / 2
-            RectTransform oldRectTransform = _messageHistory[^1].GetComponent<RectTransform>();
-            float height = oldRectTransform.rect.height * oldRectTransform.lossyScale.y;
-
+            if (_messageHistory.Count > 0)
+            {
+                RectTransform oldRectTransform = _messageHistory[^1].GetComponent<RectTransform>();
+                height += oldRectTransform.rect.height * oldRectTransform.lossyScale.y;
+            }
+            else 
+            {
+                Debug.LogWarning("Message history is empty while starting an existing chat.");
+            }
+            
             // calculate newMessage height / 2
             height += newMessageTransform.rect.height * newMessageTransform.lossyScale.y;
 
@@ -77,7 +87,7 @@ public class MessageManagerScript : MonoBehaviour
                  // [0] bottom-left, [1] top-left, [2] top-right, [3] bottom-right
                 _messageHistory[^1].GetComponent<RectTransform>().GetWorldCorners(corners);
                 float _lastY = _parentTransform.InverseTransformPoint(corners[0]).y;
-                spawnPos = new Vector3(439, _lastY - _spacing - height, 0);
+                spawnPos = new Vector3(314, _lastY - _spacing - height, 0);
             }
             else
             {
@@ -87,7 +97,7 @@ public class MessageManagerScript : MonoBehaviour
                     // [0] bottom-left, [1] top-left, [2] top-right, [3] bottom-right
                     _messageHistory[^1].GetComponent<RectTransform>().GetWorldCorners(corners);
                     float _lastY = _parentTransform.InverseTransformPoint(corners[0]).y;
-                    spawnPos = new Vector3(-438, _lastY - _spacing - height, 0);
+                    spawnPos = new Vector3(-312, _lastY - _spacing - height, 0);
                 } 
                 else
                 {
@@ -99,8 +109,15 @@ public class MessageManagerScript : MonoBehaviour
         }
 
         newMessageTransform.anchoredPosition = spawnPos;
-        // _scrollbar.value = 1;
         _messageHistory.Add(newMessage);
+
+        if (spawnPos.y <= -1071.5) // out of Messages frame
+        {
+            float newY = _parentTransform.anchoredPosition.y + newMessageTransform.rect.height * newMessageTransform.lossyScale.y * 5f + _spacing;
+            _parentTransform.anchoredPosition = new Vector2(_parentTransform.anchoredPosition.x, newY);
+        }
+
+        // EventManagerScript.instance.InvokeMessageSent();
     }
 
     private void StartNewChat()

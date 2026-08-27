@@ -9,7 +9,7 @@ public class DialogueManagerScript : MonoBehaviour
     public bool DialogueIsPlaying;
 
     [Header("Dialogue UI")]
-    private string _currentText;
+    private string _currentText = "";
 
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choices;
@@ -19,7 +19,7 @@ public class DialogueManagerScript : MonoBehaviour
     private Story currentStory;
 
     [Header("Debug/Testing")]
-    [SerializeField] TextAsset inkJSON = null;
+    [SerializeField] TextAsset inkJSON;
     [SerializeField] string knotName = null;
 
     void Awake()
@@ -50,8 +50,6 @@ public class DialogueManagerScript : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>(true);
             index++;
         }
-
-        _currentText = "";
 
         if (inkJSON != null && knotName != null)
         {
@@ -90,6 +88,7 @@ public class DialogueManagerScript : MonoBehaviour
         //     OrderTracker.instance.SetOrder(knotTags);
         // }
 
+
         ContinueStory();
     }
 
@@ -118,34 +117,39 @@ public class DialogueManagerScript : MonoBehaviour
         if (currentStory.canContinue)
         {
             _currentText = currentStory.Continue();
+            Debug.Log(_currentText);
             DisplayChoices();
 
             List<string> lineTags = currentStory.currentTags;
-            if (lineTags != null && lineTags.Count != 0)
+            if (lineTags != null && lineTags.Count != 0 && _currentText != "")
             {
-                HandleTags(lineTags);
+                if (lineTags[0] != "left" || lineTags[0] != "right")
+                {
+                    EventManagerScript.instance.InvokeSendMessage(_currentText, lineTags[0]);
+                }
+                else
+                {
+                    Debug.LogWarning("Message alignment not left or right. Alignment: " + lineTags[0]);
+                }
+            }
+            else
+            {
+                if (_currentText == "")
+                {
+                    Debug.LogWarning("Empty _currentText. Knot: " + knotName);
+                } else
+                {
+                    if (lineTags.Count == 0)
+                    {
+                        Debug.LogWarning("No alignment found. Line: " + _currentText);
+                    }
+                }
             }
         }
         else
         {
             ExitDialogueMode();
         }
-    }
-
-    private void HandleTags(List<string> tags)
-    {
-        int len = tags.Count;
-        switch (len)
-        {
-            case 1:
-                // if (tags[0] == "red")
-                // {
-                //     DialogueText.color = Color.red;
-                //     break;
-                // }
-                break;
-        }
-
     }
 
     private void DisplayChoices()
