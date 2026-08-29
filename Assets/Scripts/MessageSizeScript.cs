@@ -15,12 +15,12 @@ public class MessageSizeScript : MonoBehaviour
 
     private void Start()
     {
-        // EventManagerScript.instance.OnMessageSent += UpdateSize;
+        // EventManagerScript.instance.OnMessageSent.AddListener(UpdateSize);
     }
 
     private void OnDisable()
     {
-        // EventManagerScript.instance.OnMessageSent -= UpdateSize;
+        // EventManagerScript.instance.OnMessageSent.RemoveListener(UpdateSize);
     }
 
     public void UpdateSize()

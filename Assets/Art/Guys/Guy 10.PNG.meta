@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a2167e7b812cd45148cb571703d7fe8a
+guid: ade8d7a6d52ac48a9bd5d5631c397a04
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8102395109531276785
-    second: IMG_3750_0
+      213: -1567332953833338069
+    second: Guy 10_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_3750_0
+      name: Guy 10_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 150
-        height: 256
+        width: 2250
+        height: 3840
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f0aa68283928e8f80800000000000000
-      internalID: -8102395109531276785
+      spriteID: b2b000a8bf6bf3ae0800000000000000
+      internalID: -1567332953833338069
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      IMG_3750_0: -8102395109531276785
+      Guy 10_0: -1567332953833338069
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

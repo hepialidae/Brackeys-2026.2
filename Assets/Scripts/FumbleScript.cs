@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ public class FumbleScript : MonoBehaviour
     [SerializeField] private Sprite[] images;
     [SerializeField] private string[] namesAges;
     [SerializeField] private string[] bios;
+    [SerializeField] private Color[] namesAgesColors;
     [SerializeField] private string[] aboutMes;
 
     [Header("Components")]
@@ -16,16 +18,17 @@ public class FumbleScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _bioTMP;
     [SerializeField] private TextMeshProUGUI _aboutMeTMP;
 
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SetProfile(int guy) 
     {
-        
+        _guyImage.sprite = images[guy];
+        _nameAgeTMP.text = namesAges[guy];
+        _nameAgeTMP.color = namesAgesColors[guy];
+        _bioTMP.text = bios[guy];
+        _aboutMeTMP.text = aboutMes[guy];
     }
 }

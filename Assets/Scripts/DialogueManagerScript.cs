@@ -1,3 +1,5 @@
+// Note that this Dialogue Manager only works for ONE inkJSON file.
+
 using UnityEngine;
 using TMPro;
 using Ink.Runtime;
@@ -51,10 +53,10 @@ public class DialogueManagerScript : MonoBehaviour
             index++;
         }
 
-        if (inkJSON != null && knotName != null)
-        {
-            EnterDialogueMode(inkJSON, knotName);
-        }
+        // if (inkJSON != null && knotName != null)
+        // {
+        //     EnterDialogueMode(knotName);
+        // }
     }
 
     void Update()
@@ -72,9 +74,9 @@ public class DialogueManagerScript : MonoBehaviour
         }
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON, string knotName)
+    public void EnterDialogueMode(string knotName)
     {
-        Debug.Log("EnterDialogueMode entered");
+        Debug.Log("EnterDialogueMode entered. Knot: " + knotName);
 
         currentStory = new Story(inkJSON.text);
         DialogueIsPlaying = true;

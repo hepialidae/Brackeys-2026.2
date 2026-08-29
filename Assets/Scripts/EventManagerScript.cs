@@ -27,9 +27,9 @@ public class EventManagerScript : MonoBehaviour
         OnSendMessage.Invoke(text, alignment);
     }
 
-    public event Action OnMessageSent;
-    public void InvokeMessageSent()
-    {
-        OnMessageSent.Invoke();
-    }
+    // public UnityEvent OnMessageSent; // Unity Event for changing size of Messages box
+    // public void InvokeMessageSent()
+    // {
+    //     OnMessageSent.Invoke();
+    // }
 }
