@@ -46,8 +46,26 @@ public class EventManagerScript : MonoBehaviour
     }
 
     public event Action OnNoMatch;
-    public void InvokeNoMatch()
+    public event Action OnNoMatch2;
+    public IEnumerator InvokeNoMatch()
     {
         OnNoMatch.Invoke();
+        yield return null;
+        OnNoMatch2.Invoke();
+    }
+
+    public event Action OnEndChat;
+    public event Action OnEndChat2;
+    public IEnumerator InvokeEndChat()
+    {
+        OnEndChat.Invoke();
+        yield return null;
+        OnEndChat2.Invoke();
+    }
+
+    public event Action OnDateStart;
+    public void InvokeDateStart()
+    {
+        OnDateStart.Invoke();
     }
 }

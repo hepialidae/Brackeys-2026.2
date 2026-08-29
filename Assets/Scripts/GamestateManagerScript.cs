@@ -7,7 +7,8 @@ public class GamestateManagerScript : MonoBehaviour
 {
     public static GamestateManagerScript instance;
     public int day { get; private set; } = 1;
-    public int profile { get; private set; }
+    public int profile { get; private set; } = 0;
+    public int rejectCount { get; private set; } = 0;
     private int[] day1_guys = new int[6];
     private int[] day2_guys = new int[6];
     private int[] day3_guys = new int[6]; 
@@ -29,11 +30,29 @@ public class GamestateManagerScript : MonoBehaviour
     {
         SetProfileOrder();
         profile = day1_guys[0];
+        
+        EventManagerScript.instance.OnNoMatch += NextGuy;
+        EventManagerScript.instance.OnNoMatch += AddRejection;
+        EventManagerScript.instance.OnDateStart += NextGuy;
+        EventManagerScript.instance.OnDateStart += AddRejection;
+    }
+
+    void OnDisable()
+    {
+        EventManagerScript.instance.OnNoMatch -= NextGuy;
+        EventManagerScript.instance.OnNoMatch -= AddRejection;
+        EventManagerScript.instance.OnDateStart -= NextGuy;
+        EventManagerScript.instance.OnDateStart -= AddRejection;
     }
 
     public void NextDay()
     {
         day += 1;
+    }
+
+    public void AddRejection()
+    {
+        rejectCount += 1;
     }
 
     public int GetProfileIndex(int profile)

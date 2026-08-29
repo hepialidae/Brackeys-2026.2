@@ -84,30 +84,30 @@ public class DialogueManagerScript : MonoBehaviour
 
         currentStory.ChoosePathString(knotName);
 
-        // if (knotName.Contains("Default"))
-        // {
-        //     List<string> knotTags = currentStory.TagsForContentAtPath(knotName).ToList();
-        //     BindLeaveCounter();
-        //     OrderTracker.instance.SetOrder(knotTags);
-        // }
-
+        BindEndChat();
+        if (knotName.Contains("guy"))
+        {
+            BindDate();
+        }
 
         ContinueStory();
     }
 
-    // public void BindEndOrder()
-    // {
-    //     currentStory.BindExternalFunction("endOrder", () =>
-    //     {
-    //         ExitDialogueMode();
-    //         EventManagerScript_Counter.instance.ServeCustomer();
+    public void BindEndChat()
+    {
+        currentStory.BindExternalFunction("EndChat", () =>
+        {
+            EventManagerScript.instance.InvokeEndChat();
+        });
+    }
 
-    //         if (CustomerManagerScript.instance.customersVisited.Count == GamestateManager.instance.customersPerDay)
-    //         {
-    //             EventManagerScript_Counter.instance.EndDay(GamestateManager.instance.day);
-    //         }
-    //     });
-    // }
+    public void BindDate()
+    {
+        currentStory.BindExternalFunction("Date", () =>
+        {
+            EventManagerScript.instance.InvokeDateStart();
+        });
+    }
 
     private void ExitDialogueMode()
     {

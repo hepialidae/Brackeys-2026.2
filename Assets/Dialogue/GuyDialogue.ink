@@ -1,3 +1,6 @@
+EXTERNAL EndChat()
+EXTERNAL Date()
+
 ===guy1===
 Hey there, how's it going? # left
 Just like any other day. # right 
@@ -19,18 +22,18 @@ Just like any other day. # right
 Wow! It’s hard to see a kindred spirit where everyone just stares into the endless void that is phones. #left 
 I have a library membership card that could be spared. If you’re free, would you want to go there with me? #left
 * Sure. sounds fun. #right
-	// ~ Date()
+	~ Date()
 	-> END
 * No thanks book nerd.
     Oh. Then have a good rest of your day. #left
-    // ~ EndChat()
+    ~ EndChat()
 	-> END
 
 ==guy1knot2==
 I’m sure you can find your dream hobby someday. #left
 If you’re free, would you like to go out for a walk in the park later? #left
 * Sure. I would love to. #right
-    // ~ Date()
+    ~ Date()
 	-> END
 * No thanks. # right
     It was nice meeting you but I think we would never get along well. #right
@@ -57,11 +60,11 @@ Would you like to come to karaoke with me? # left
 Don't worry if you're not good at singing, we can just have fun screaming classics pop songs! # left
 * Sure. I would love to. # right
     Amazing! I'll book the room!
-    // ~ Date()
+    ~ Date()
 	-> END
 * No thanks. # right
     Ah... #left
-    // ~ EndChat()
+    ~ EndChat()
     -> END
 
 ==guy2_2==
@@ -72,11 +75,11 @@ Want to come to the animal shelter with me? # left
 I'll introduce you to all the animals!!!! You're gonna love it # left
 * Sure. I would love to. # right
     Amazing! I'll let the staff know we're coming!
-    // ~ Date()
+    ~ Date()
 	-> END
 * No thanks. # right
     Not even for cute puppies and kittens? #left
-    // ~ EndChat()
+    ~ EndChat()
     -> END
 
 
@@ -86,7 +89,7 @@ Hey there! Your profile looks great. #left
     -> guy3_1
 * Yours sucks.
     It is impossible to have bad taste, but many people have none at all. Even in an infinite universe, your unique brand of absurdness stands out. Goodbye. # left
-	// ~ EndChat()
+	~ EndChat()
 	-> END
 	
 ==guy3_1==
@@ -95,7 +98,7 @@ Right now I’m majoring in philosophy, just 2 more years until I can finally be
     -> guy3_2
 * So you’re a hippie with the whole outdoors thing. #right
     To call you a disappointment would imply I expected something from you. I think we would never get along. # left
-    // ~ EndChat()
+    ~ EndChat()
     -> END
 
 ==guy3_2==
@@ -103,12 +106,12 @@ Yeah. My favourite activity is going barbecuing and watching the sunset on Obama
 You like nature too, right? We can hang out there and know each other a bit better! #left
 * Sure! That sounds great. #right 
     The time you enjoy wasting is not wasted time, you won’t be disappointed! #left                         
-    // ~ Date()
+    ~ Date()
     -> END
 * No thanks, I don't like sand. # right
     It's coarse and rough and irritating and it gets everywhere  #right
     Blessed is he who expects nothing, for he shall never be disappointed. #left
-    // ~ EndChat()
+    ~ EndChat()
     -> END
 
 
@@ -130,11 +133,11 @@ Hi # left
 ==guy4_1==
 *Sure, I’d love to. #right
     Wow, really? Let’s meet at the swimming pool then!  # left
-    // ~ Date()
+    ~ Date()
     -> END
 *No thanks wallflower.  # right
     Oh, ok then.  # left
-    // ~ EndChat()
+    ~ EndChat()
     -> END
 
 
@@ -147,7 +150,7 @@ So, what’s a girl like you doing on this hellhole of an app? # left
 * [For something casual] I just want something casual, nothing serious. # right
 	Oh… # left
 	I don’t think we’re a good match for each other. # left
-	// ~ EndChat()
+	~ EndChat()
 	-> END
 
 ==Guy5_1==
@@ -175,11 +178,11 @@ Finding love in this day and age is really hard. # right
 
 ==guy5_date==
 * Sure! # right
-			// ~ Date()
+			~ Date()
 			-> END
 * No thanks. # right
 			Oh…okay then # left
-			// ~ EndChat()
+			~ EndChat()
 			-> END
 
 
@@ -213,11 +216,11 @@ You really are a special girl # left
 		I know a quiet place with a great view of the ocean where we can chat uninterrupted # left
 		* Sure! # right
 			Sweet! I’ll buy you a drink on the way # left
-			// ~ Date()
+			~ Date()
 			-> END
 		* No thanks. # right
 			I must’ve assumed too much. # left
-			// ~ EndChat()
+			~ EndChat()
 			-> END
 -> END
 
@@ -227,11 +230,11 @@ That’s okay, my friends are the same way # left
 		I know a great cafe where we can get to know each other better # left
 		* Sure! # right
 			Sweet! It’ll be my treat! # left
-			// ~ Date()
+			~ Date()
 			-> END
 		* No thanks. # right
 			I must’ve assumed too much. # left
-			// ~ EndChat()
+			~ EndChat()
 			-> END
 
 ==guy6_2==
@@ -248,7 +251,7 @@ I want a serious relationship # left
 	* No # right
 		I guess you have your reasons…
 		That’s so depressing tho
-		//~ EndChat()
+		~ EndChat()
 		-> END
 
 ==guy6_2_1==
@@ -263,17 +266,17 @@ I want a serious relationship # left
 			I guess I assumed too much # left
 			I’m sorry, but I don’t think you’re the right person for me 
             Video games are a huge part of my life, and I want my soulmate to enjoy them too
-			//~EndChat()
+			~ EndChat()
 			-> END
 
 ==guy6_2_2==
 * Sure! # right
 				Sweet! I’ll buy you a drink on the way # left
-				//~ Date()
+				~ Date()
 				-> END
 			* No thanks. # right
 				I must’ve assumed too much. # left
-				//~ EndChat()
+				~ EndChat()
 				-> END
 
 ===guy7===
@@ -289,18 +292,18 @@ Whatchu wearing rn? # left
 	Creepy??????!!!!!!!111!!! # left
     You just have bad taste # left
     Never text me again you lowlife # left
-    // ~ EndChat()
+    ~ EndChat()
     -> END
 
 ==guy7_1==
 * Sure! # right
 	I’ll see you at the gaming cafe then my pwincess # left
-	// ~ Date()
+	~ Date()
 	-> END
 * No thanks… # right
 	Well if you don’t want me, I’ll take my alpha energy somewhere else # left
     Tasteless bottom feeder. # left
-	// ~ EndChat()
+	~ EndChat()
 	-> END
 
 ===guy8===
@@ -320,12 +323,12 @@ So…
 Want to grab a drink?
 * Sure! # right
 	Oh nice! See you at the bar then # left
-	Date()
+	~ Date()
 	-> END
 * No thanks… # right
 	Average stacy.
 	This app is just high school all over again
-	EndChat()
+	~ EndChat()
 	-> END
 
 ===guy9===
@@ -341,10 +344,10 @@ Well…as they say, age is just a number # left
 		NOT AS OLD AS ME?????? # left
 		I’LL HAVE YOU KNOW I’M ONLY A LITTLE MORE THAN 50 # left
 		GET BLOCKED YOU UGLY HAG # left
-		// ~ EndChat()
+		~ EndChat()
 		-> END
 	* … # right
-		// ~ EndChat()
+		~ EndChat()
 		-> END
 
 ==guy9_2==
@@ -352,7 +355,7 @@ I don’t really talk about that. # left
 	* Are you rich? # right
 		Getting right to the point, huh? # left
 		Damn gold diggers. # left
-		// ~ EndChat()
+		~ EndChat()
 		-> END
 	* How did you afford your Porsche? # right
 		The standard way. I took out a loan. # left
@@ -364,12 +367,12 @@ I don’t really talk about that. # left
 ==guy9_2_1==
 * Sure! # right
 			Wear something pretty tonight for Daddy # left
-			// ~ Date()
+			~ Date()
 			-> END
         * No thanks… # right
 			Damn it # left
 			Do you women care about money that much??? # left
-			// ~ EndChat()
+			~ EndChat()
 			-> END
 
 ===guy10===
@@ -385,7 +388,7 @@ So, tell me, why would a girl like you match with a guy like me? # left
 You’re a ray of sunshine. You deserve someone who will take care of you. # left
 I’m not here for that. # left
 * … # right
-	// ~ EndChat()
+	~ EndChat()
 	-> END
 * Wait… # right
 	-> guy10_1
@@ -401,7 +404,7 @@ What do you want? # left
 		Rehab has never worked for me. I don’t care about myself enough to change. # left
 		-> guy10_2
 	* Nothing… # right
-		// ~ EndChat()
+		~ EndChat()
 		-> END
 
 ==guy10_2==
@@ -409,11 +412,11 @@ What do you want? # left
 			Why?
 			If you want to…meet me at the park? 
 			Let’s take a stroll along the promenade.
-			// ~ Date()
+			~ Date()
 			-> END
 		* I see.
 			Guess this is where we part. #left
-			// ~ EndChat()
+			~ EndChat()
 			-> END
 
 ===guy11===
@@ -434,7 +437,7 @@ I’ll be there for you # left
 	Let’s go for a “typical first date” then # left
 	The movies!!! # left
 	I’ll see you at the cinema # left
-	// ~ Date()
+	~ Date()
 	-> END
 * What’s really in it for you? # right
 	Of course you would ask that… # left
@@ -452,12 +455,12 @@ I’ll be there for you # left
 		Thank you so much. # left
 		Let’s talk about something happier - our first date! # left
 		How about you meet me behind the town hall, and I’ll bring you wherever you want? # left
-		// ~ Date()
+		~ Date()
 		-> END
 	* You cheater! # right
 		That… # left
 		I suppose you’re not wrong # left
-		// ~ EndChat()
+		~ EndChat()
 		-> END
 
 ===guy12===
@@ -489,18 +492,18 @@ She loves to bowl, so we could all get together for that # left
     -> guy12_2
 * No. # right
 	Some women are just never satisfied. # left
-	// ~ EndChat()
+	~ EndChat()
 	-> END
 
 ==guy12_2==
 I’ll meet you at the town square this afternoon, if that’s okay with you? # left
 * Sure! # right
 	See you there! # left
-    // ~ Date()
+    ~ Date()
 	-> END
 * Ehh…no thanks # right
 	As if girls like you aren’t a dime a dozen. # left
-	// ~ EndChat()
+	~ EndChat()
 	-> END
 
 ===guy13===
@@ -508,11 +511,11 @@ Hey # left
 Where do you live? # left
 * [(Tell him your address)] My address is 123 Red Pool Road. # right
 	Thank you.
-	// ~ Date()
+	~ Date()
 	-> END
 * Why? # right
     Hello? # right
-    // ~ EndChat()
+    ~ EndChat()
     -> END
 
 ===guy14===
@@ -524,12 +527,12 @@ Right? # left
 * Yes. # right
 	Good girl. # left
     I’ll see you behind the town hall tonight. # left
-    // ~ Date()
+    ~ Date()
     -> END
 *Screw off! # right
 	Your defiance doesn't change a thing, love. # left
 	We’ll be together in the end, whether you like it or not. # left
-	// ~ EndChat()
+	~ EndChat()
 	-> END
 
 ===guy15===
@@ -548,11 +551,11 @@ Could you be my model for a day? # left
 I won’t do anything with the photos, I swear, and you’ll get to see them afterwards # left
 * Sure! # right
     Amazing! I’ll see you at the park tonight! # left
-    // ~ Date()
+    ~ Date()
     -> END
 * No thanks. # right
 	Never mind, I guess. # left
-	// ~ EndChat()
+	~ EndChat()
 	-> END
 
 ===guy16===
@@ -576,11 +579,11 @@ What’s the difference between me and a cup of coffee? # left
 Let’s go explore the abandoned village near the east of the island! I happen to have free time today # left
 * Sure! # right
     I knew you’d say yes! I’ll see you near the entrance of the village, then. # left
-    // ~ Date()
+    ~ Date()
     -> END
 * No thanks. # right
 	Oh…I didn’t see that coming. # left
-	// ~ EndChat()
+	~ EndChat()
 	-> END
 
 ===guy17===
@@ -593,10 +596,10 @@ Pelican Island # right
 Which street exactly? # left
 * [Tell him your address] 123 Red Pool Street # right
 	Come outside.
-	// ~ Date()
+	~ Date()
 	-> END
 * Why do you need to know? # right
-	// ~ EndChat()
+	~ EndChat()
 	-> END
 
 ===guy18===
@@ -604,7 +607,7 @@ Hey, we matched! # left
 * Are those gains real? # right
 	Of course they’re real! Why are you asking??? # left
 	I have 100k followers! Do you think I bought them or something? # left
-	// ~ EndChat()
+	~ EndChat()
 	-> END
 * What do you do in your free time? # right
 	I don’t really like going outside, if I’m being honest # left
@@ -616,11 +619,11 @@ Hey, we matched! # left
 - Would you like to go to a coffee shop with me? I know a nice, quiet place we can sit and chat # left
 * Sure! # right
     Great! I’ll see you there. # left
-    // ~ Date()
+    ~ Date()
     -> END
 * No thanks. # right
 	Is it because I’m too manly? # left
-	// ~ EndChat()
+	~ EndChat()
 	-> END
 
 ===stalker===
@@ -629,14 +632,5 @@ Are you seriously on Fumble? # left
 You're mine. Got it? MINE. # left
 No...it doesn't matter. # left
 We'll be together forever. I'll make sure of it. # left
+~ EndChat()
 -> END
-
-
-
-
-
-
-
-
-
-

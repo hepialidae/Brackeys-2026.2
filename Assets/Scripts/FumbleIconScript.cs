@@ -11,7 +11,8 @@ public class FumbleIconScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
     void Start()
     {
         _img = GetComponent<UnityEngine.UI.Image>();
-        
+
+        EventManagerScript.instance.OnEndChat += OpenWindow;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -25,6 +26,12 @@ public class FumbleIconScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
     }
 
     public void OnClick()
+    {
+        _img.sprite = _normalSprite;
+        _window.SetActive(true);
+    }
+
+    private void OpenWindow()
     {
         _window.SetActive(true);
     }

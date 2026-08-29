@@ -25,6 +25,6 @@ public class CrossScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnClick()
     {
-        
+        StartCoroutine(EventManagerScript.instance.InvokeNoMatch());
     }
 }

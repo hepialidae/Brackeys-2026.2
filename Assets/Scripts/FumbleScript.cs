@@ -19,25 +19,33 @@ public class FumbleScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _aboutMeTMP;
     [SerializeField] private Button _tick;
     [SerializeField] private Button _cross;
+    [SerializeField] private Scrollbar _sb;
 
     void Start()
     {
         EventManagerScript.instance.OnMatch += DisableButtons;
-        SetProfile(GamestateManagerScript.instance.profile);
+        EventManagerScript.instance.OnNoMatch2 += SetProfile;
+        EventManagerScript.instance.OnEndChat += EnableButtons;
+        EventManagerScript.instance.OnEndChat2 += SetProfile;
+
+        SetProfile();
     }
 
     void OnDisable()
     {
         EventManagerScript.instance.OnMatch -= DisableButtons;
+        EventManagerScript.instance.OnNoMatch2 -= SetProfile;
     }
 
-    private void SetProfile(int guy) 
+    private void SetProfile() 
     {
+        int guy = GamestateManagerScript.instance.profile;
         _guyImage.sprite = images[guy];
         _nameAgeTMP.text = namesAges[guy];
         _nameAgeTMP.color = namesAgesColors[guy];
         _bioTMP.text = bios[guy];
         _aboutMeTMP.text = aboutMes[guy];
+        _sb.value = 1;
     }
 
     private void DisableButtons() 
