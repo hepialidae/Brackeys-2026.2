@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,6 +15,7 @@ public class EventManagerScript : MonoBehaviour
         if (instance != null)
         {
             Debug.LogWarning("More than one instance of EventManagerScript found.");
+            Destroy(gameObject);
         }
         else
         {
@@ -32,4 +34,20 @@ public class EventManagerScript : MonoBehaviour
     // {
     //     OnMessageSent.Invoke();
     // }
+
+    public event Action OnMatch;
+    public event Action OnMatch2;
+    public IEnumerator InvokeMatch()
+    {
+        Debug.Log("OnMatch invoking...");
+        OnMatch.Invoke();
+        yield return null;
+        OnMatch2.Invoke();
+    }
+
+    public event Action OnNoMatch;
+    public void InvokeNoMatch()
+    {
+        OnNoMatch.Invoke();
+    }
 }

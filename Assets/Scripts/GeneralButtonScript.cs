@@ -22,4 +22,9 @@ public class GeneralButtonScript : MonoBehaviour, IPointerEnterHandler, IPointer
     {
         _img.sprite = _normalSprite;
     }
+
+    public void OnClick()
+    {
+        _img.sprite = _normalSprite;
+    }
 }

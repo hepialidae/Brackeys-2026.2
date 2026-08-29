@@ -29,6 +29,7 @@ public class DialogueManagerScript : MonoBehaviour
         if (instance != null)
         {
             Debug.LogWarning("Found more than one dialogue manager");
+            Destroy(gameObject);
         }
         else
         {

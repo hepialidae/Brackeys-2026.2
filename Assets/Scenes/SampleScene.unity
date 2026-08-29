@@ -278,8 +278,8 @@ MonoBehaviour:
   choices:
   - {fileID: 125832440}
   - {fileID: 1755824689}
-  inkJSON: {fileID: 4900000, guid: 9e9584c1afeba4433812140fee101252, type: 3}
-  knotName: begin
+  inkJSON: {fileID: 4900000, guid: 6f3142eddf68f4fb29574abf95ad054b, type: 3}
+  knotName: 
 --- !u!4 &54210196
 Transform:
   m_ObjectHideFlags: 0
@@ -289,11 +289,11 @@ Transform:
   m_GameObject: {fileID: 54210194}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -640.6787, y: -0.18981934, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalPosition: {x: 1097.8643, y: 386.96204, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1875174981}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &87395034
 GameObject:
@@ -530,6 +530,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: DialogueManagerScript, Assembly-CSharp
         m_MethodName: MakeChoice
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 125832445}
+        m_TargetAssemblyTypeName: GeneralButtonScript, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -906,7 +918,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -635.85126, y: 0, z: 128.33716, w: -76.971375}
+  m_margin: {x: -635.85126, y: 0, z: -616.4565, w: -76.971375}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -932,7 +944,7 @@ GameObject:
   - component: {fileID: 260363406}
   - component: {fileID: 260363405}
   - component: {fileID: 260363404}
-  - component: {fileID: 260363403}
+  - component: {fileID: 260363407}
   m_Layer: 5
   m_Name: MessagesIcon
   m_TagString: Untagged
@@ -960,21 +972,6 @@ RectTransform:
   m_AnchoredPosition: {x: -612, y: 274}
   m_SizeDelta: {x: 1142, y: 1102}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &260363403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 260363401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f379dce197a341d59ec28877dcb4e30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FumbleIconScript
-  _normalSprite: {fileID: -2880058397969490342, guid: e1dd759cc61cf48ea9190f2889e0cf9c, type: 3}
-  _hoverSprite: {fileID: -2880058397969490342, guid: e1dd759cc61cf48ea9190f2889e0cf9c, type: 3}
-  _window: {fileID: 1875174980}
 --- !u!114 &260363404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,8 +1016,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 260363403}
-        m_TargetAssemblyTypeName: FumbleIconScript, Assembly-CSharp
+      - m_Target: {fileID: 260363407}
+        m_TargetAssemblyTypeName: MessagesIconScript, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -1069,6 +1066,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260363401}
   m_CullTransparentMesh: 1
+--- !u!114 &260363407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260363401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8ba6e1b601746f69ebcde74a7ec516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  _normalSprite: {fileID: -2880058397969490342, guid: e1dd759cc61cf48ea9190f2889e0cf9c, type: 3}
+  _hoverSprite: {fileID: -2880058397969490342, guid: e1dd759cc61cf48ea9190f2889e0cf9c, type: 3}
+  _window: {fileID: 1875174980}
 --- !u!1 &269230543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,7 +1163,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 269230546}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 269230548}
+        m_TargetAssemblyTypeName: TickScript, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &269230546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2426,6 +2450,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744950783}
   m_CullTransparentMesh: 1
+--- !u!1 &756869109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 756869111}
+  - component: {fileID: 756869110}
+  m_Layer: 0
+  m_Name: GamestateManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &756869110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756869109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f30a2b88d1ecc4e46bb8a3d2300e9320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!4 &756869111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756869109}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1066.6067, y: 405.6865, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &762588768
 GameObject:
   m_ObjectHideFlags: 0
@@ -2998,7 +3066,6 @@ GameObject:
   - component: {fileID: 1078360960}
   - component: {fileID: 1078360962}
   - component: {fileID: 1078360961}
-  - component: {fileID: 1078360963}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -3073,18 +3140,143 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078360959}
   m_CullTransparentMesh: 1
---- !u!114 &1078360963
+--- !u!1 &1091502225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1091502226}
+  - component: {fileID: 1091502228}
+  - component: {fileID: 1091502227}
+  m_Layer: 5
+  m_Name: ContactName
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1091502226
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091502225}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1875174981}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -756, y: 1460}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1091502227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1078360959}
+  m_GameObject: {fileID: 1091502225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98f57298fad6b46b391878c5565a3af6, type: 3}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Lucian
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: ef40afaa8b13145a7876640ab4f4a2f2, type: 2}
+  m_sharedMaterial: {fileID: -5874400458169499068, guid: ef40afaa8b13145a7876640ab4f4a2f2, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4280493413
+  m_fontColor: {r: 0.39607844, g: 0.14509805, b: 0.13725491, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 100
+  m_fontSizeBase: 100
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: -72.647705, y: -79.938965, z: -1585.6879, w: -93.628235}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1091502228
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091502225}
+  m_CullTransparentMesh: 1
 --- !u!1 &1097691431
 GameObject:
   m_ObjectHideFlags: 0
@@ -3153,8 +3345,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1387047918}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.3611111, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3246,6 +3438,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _spacing: 50
   _messageBox: {fileID: 7303179774236577358, guid: fc7b3a8ed813541989f05e6c3201317d, type: 3}
+  _contactNameTMP: {fileID: 1091502227}
+  names:
+  - Steven
+  - Michael
+  - Dominique
+  - Tommy
+  - Ernest
+  - Lucian
+  - Sniper Extraordinaire
+  - Chad
+  - Paul
+  - Ray
+  - Steve
+  - Deshawn
+  - Jimmy
+  - Stalker
+  - Ryan
+  - Samuel
+  - 
+  - Jordan
 --- !u!1 &1124896376
 GameObject:
   m_ObjectHideFlags: 0
@@ -3698,9 +3910,9 @@ RectTransform:
   m_Father: {fileID: 1272188918}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -12, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1222236700
 MonoBehaviour:
@@ -3772,7 +3984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1272188918
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3874,14 +4086,125 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2433f089fb99045a0b9fa470818feebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  images: []
-  namesAges: []
-  bios: []
-  aboutMes: []
+  images:
+  - {fileID: 0}
+  - {fileID: -7406036662231391980, guid: 706fe8524111347a391ea02393aa4f6f, type: 3}
+  - {fileID: 2623966359507258486, guid: 8ddff8ee029e3481694b923dc473fa08, type: 3}
+  - {fileID: -63097565214354426, guid: b19f32ff976fa46d8a795da5b3ea3a63, type: 3}
+  - {fileID: -7948018210285660852, guid: 695ea646ecf724650be391cb235f5356, type: 3}
+  - {fileID: -1981716479891931428, guid: 2da8c573ecce24ee3958a0c39881a537, type: 3}
+  - {fileID: 1676985290608487009, guid: d265f3dc2017c45979f18346e2d1c3b1, type: 3}
+  - {fileID: 1192486121723145082, guid: ab02307cd20d742e6bfdb0754c6271ac, type: 3}
+  - {fileID: -8884920959660204506, guid: 4903ddebdcb9f4f638126ec5fccacaa6, type: 3}
+  - {fileID: -1567332953833338069, guid: ade8d7a6d52ac48a9bd5d5631c397a04, type: 3}
+  - {fileID: -4502597587249880893, guid: 4b53129f96e6042baa24bb45e9add27e, type: 3}
+  - {fileID: 7043107391974538758, guid: ccba4e34495e94966b0116a16426c63b, type: 3}
+  - {fileID: -7967514569817718973, guid: bd3ee2700ed444eb282426452bc2c6f0, type: 3}
+  - {fileID: 0}
+  - {fileID: -8789973194571459211, guid: 8803f35678267490d9ba21fe88a40ca6, type: 3}
+  - {fileID: -1603300729801175361, guid: f5e05b41b28c24559a6dfc02ec65c0a2, type: 3}
+  - {fileID: 0}
+  - {fileID: 7589620466592715875, guid: 0aa48c76dbde6462b9bd501576903f36, type: 3}
+  namesAges:
+  - Steven, 26
+  - Michael, 20
+  - Dominique, 21
+  - Tommy, 25
+  - Ernest, 29
+  - Lucian, 22
+  - Sniper, 40
+  - Chad, 24
+  - Paul, 20
+  - Ray, 31
+  - Steve, 47
+  - DeShawn, 25
+  - Jimmy, 26
+  - Stalker, ??
+  - 'Ryan, 27 '
+  - Samuel, 22
+  - 
+  - Jordan, 26
+  bios:
+  - Let us write our perfect love story together.
+  - 
+  - To be or not to be my girlfriend...
+  - "Life's a beach, and I\u2019m an inflatable floatie."
+  - Wanna bet I can treat you better than your ex?
+  - 'Hope to get to know you! '
+  - "I\u2019ll snipe into your heart! "
+  - Chad name, Chad lifestyle.
+  - Paul
+  - Would you dare come closer?
+  - 'Can you keep a secret? '
+  - "If being handsome was a crime, I\u2019d be in jail for life. "
+  - "Your heart's beating abnormally fast\u2026"
+  - You're mine.
+  - 
+  - Your eyes shine as bright as the North Star.
+  - 
+  - 'A giant with a gentle heart. '
+  namesAgesColors:
+  - {r: 0.95686275, g: 0.85490197, b: 0.90588236, a: 1}
+  - {r: 0.95686275, g: 0.85490197, b: 0.90588236, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.95686275, g: 0.85490197, b: 0.90588236, a: 1}
+  - {r: 0.18039216, g: 0.09411765, b: 0.07450981, a: 1}
+  - {r: 0.95686275, g: 0.85490197, b: 0.90588236, a: 1}
+  - {r: 0.9019608, g: 0.11372549, b: 0.12941177, a: 1}
+  - {r: 0.95686275, g: 0.85490197, b: 0.90588236, a: 1}
+  - {r: 0.9372549, g: 0.10980392, b: 0.12941177, a: 1}
+  - {r: 0.92941177, g: 0.10980392, b: 0.13333334, a: 1}
+  - {r: 0.95686275, g: 0.85490197, b: 0.90588236, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.95686275, g: 0.85490197, b: 0.90588236, a: 1}
+  - {r: 0.95686275, g: 0.85490197, b: 0.90588236, a: 1}
+  - {r: 0.95686275, g: 0.85490197, b: 0.90588236, a: 1}
+  - {r: 0.40392157, g: 0.14901961, b: 0.14117648, a: 1}
+  - {r: 0.95686275, g: 0.85490197, b: 0.90588236, a: 1}
+  - {r: 0.3764706, g: 0.13725491, b: 0.1254902, a: 1}
+  aboutMes:
+  - ' - I work as a barista\n - My dream is to be a writer\n - My love language is
+    words of affirmation'
+  - ' - Dazzling singer and songwriter\n - Animal shelter volunteer\n - Looking for
+    a fun-filled serious relationship'
+  - ' - Philosopher mindset\n - Love language is compliments with quotes\n - Looking
+    for a serious relationship'
+  - ' - Part time lifeguard, part time athlete\n - Love language is acts of service\n
+    - Favorite summer drink is Pina Colada'
+  - ' - I work as a hairstylist\n - My love language is acts of service\n - Looking
+    for a serious relationship'
+  - ' - Occupation: Game developer at a small studio\n - I love R&B music, but I
+    don''t really like metal\n - Love language: Quality time'
+  - ONLY SWIPE RIGHT IF YOU'RE UNDER 25!!!!!!!\n - Streamer on Pitch (@sniperextraordinaire)\n
+    - Top 100 LoM player\n - My love language is physical touch\n - My favorite meal
+    is chicken wings and beer.
+  - ' - Committed to the gym\n - Love language: Words of affirmation\n - Looking
+    for my looksmatch'
+  - ' - I own a Porsche\n - My love language is physical touch\n - Looking for a
+    serious relationship with someone young and full of energy'
+  - ' - I don''t trust people easily\n - My love language is acts of service\n -
+    I''m not looking for anything serious\n - Let''s see who can down a shot of whiskey
+    faster, shall we?'
+  - ' - Working as a surgeon\n - Looking for someone to spice up my boring life\n
+    - I''m an indoors person\n - My love language is quality time'
+  - ' - Entrepreneur in San Fransokyo\n - Extroverted and outdoorsy\n - I get jealous
+    easily\n - Love language: Physical touch'
+  - ' - Love language: Words of affirmation\n - Occupation: Nurse\n - Favorite Drink:
+    Coffee'
+  - 'I''m only looking for one special girl. '
+  - ' - Human male working as a fireman\n - I like pizza\n - Love Language: Words
+    of affirmation'
+  - ' - I like hiking, just for the scenery\n - My love language is physical touch\n
+    - I work as a park ranger and tour guide'
+  - 
+  - ' - Popular fitness influencer with 100k+ followers\n - My favorite superhero
+    is the Hulk (guess my favorite color)\n - My love language is quality time'
   _guyImage: {fileID: 497919789}
   _nameAgeTMP: {fileID: 227818620}
   _bioTMP: {fileID: 1826550056}
   _aboutMeTMP: {fileID: 1175531019}
+  _tick: {fileID: 269230545}
+  _cross: {fileID: 87395036}
 --- !u!1 &1279427962
 GameObject:
   m_ObjectHideFlags: 0
@@ -4573,7 +4896,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1584304756}
-  - component: {fileID: 1584304757}
   m_Layer: 5
   m_Name: Messages
   m_TagString: Untagged
@@ -4600,19 +4922,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 28}
   m_SizeDelta: {x: 1875, y: 2321.015}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1584304757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584304755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75c4f08d99bc5496e876a9954118e579, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  _scrollbar: {fileID: 11608651}
 --- !u!1 &1618352371
 GameObject:
   m_ObjectHideFlags: 0
@@ -5100,6 +5409,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1755824694}
+        m_TargetAssemblyTypeName: GeneralButtonScript, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1755824691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5421,9 +5742,9 @@ RectTransform:
   - {fileID: 1755824693}
   - {fileID: 1116368457}
   - {fileID: 1707391431}
-  - {fileID: 54210196}
   - {fileID: 1345983591}
   - {fileID: 762588769}
+  - {fileID: 1091502226}
   m_Father: {fileID: 506803855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5873,3 +6194,5 @@ SceneRoots:
   - {fileID: 1747482916}
   - {fileID: 299637761}
   - {fileID: 1755396338}
+  - {fileID: 54210196}
+  - {fileID: 756869111}

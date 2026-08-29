@@ -11,6 +11,8 @@ public class MessageManagerScript : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private GameObject _messageBox;
+    [SerializeField] private TextMeshProUGUI _contactNameTMP;
+    [SerializeField] private string[] names;
     private GameObject _parent;
     private RectTransform _parentTransform;
     public bool IsNewChat { get; private set; } = true;
@@ -25,6 +27,7 @@ public class MessageManagerScript : MonoBehaviour
         _parentTransform = _parent.GetComponent<RectTransform>();
 
         EventManagerScript.instance.OnSendMessage.AddListener(SpawnMessage);
+        EventManagerScript.instance.OnMatch2 += StartNewChat;
     }
 
     void OnDisable() 
@@ -129,5 +132,8 @@ public class MessageManagerScript : MonoBehaviour
 
         _messageHistory.Clear();
         IsNewChat = true;
+        _contactNameTMP.text = names[GamestateManagerScript.instance.profile];
+        string knotName = "guy" + (GamestateManagerScript.instance.profile + 1);
+        DialogueManagerScript.GetInstance().EnterDialogueMode(knotName);
     }
 }

@@ -17,10 +17,18 @@ public class FumbleScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _nameAgeTMP;
     [SerializeField] private TextMeshProUGUI _bioTMP;
     [SerializeField] private TextMeshProUGUI _aboutMeTMP;
+    [SerializeField] private Button _tick;
+    [SerializeField] private Button _cross;
 
     void Start()
     {
-        gameObject.SetActive(false);
+        EventManagerScript.instance.OnMatch += DisableButtons;
+        SetProfile(GamestateManagerScript.instance.profile);
+    }
+
+    void OnDisable()
+    {
+        EventManagerScript.instance.OnMatch -= DisableButtons;
     }
 
     private void SetProfile(int guy) 
@@ -30,5 +38,17 @@ public class FumbleScript : MonoBehaviour
         _nameAgeTMP.color = namesAgesColors[guy];
         _bioTMP.text = bios[guy];
         _aboutMeTMP.text = aboutMes[guy];
+    }
+
+    private void DisableButtons() 
+    {
+        _tick.interactable = false;
+        _cross.interactable = false;
+    }
+
+    private void EnableButtons() 
+    {
+        _tick.interactable = true;
+        _cross.interactable = true;
     }
 }

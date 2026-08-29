@@ -10,7 +10,6 @@ public class TickScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void Start()
     {
         _img = GetComponent<UnityEngine.UI.Image>();
-        
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -25,6 +24,6 @@ public class TickScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnClick()
     {
-        
+        StartCoroutine(EventManagerScript.instance.InvokeMatch());
     }
 }

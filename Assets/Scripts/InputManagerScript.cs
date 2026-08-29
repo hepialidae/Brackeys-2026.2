@@ -12,6 +12,7 @@ public class InputManagerScript : MonoBehaviour
         if (instance != null)
         {
             Debug.LogWarning("More than one instance of InputManagerScript found");
+            Destroy(gameObject);
         }
         else
         {
