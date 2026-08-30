@@ -18,7 +18,7 @@ public class PhotostripScript : MonoBehaviour
         _transform = GetComponent<RectTransform>();
         _img = GetComponent<UnityEngine.UI.Image>();
         
-        EventManagerScript.instance.OnDateStart += Appear;
+        EventManagerScript.instance.OnDateStart2 += Appear;
     }
 
     private void Appear()
@@ -27,7 +27,7 @@ public class PhotostripScript : MonoBehaviour
         Vector3 pos = new Vector3(0, -930, 0);
         _transform.anchoredPosition = pos;
 
-        int profile = GamestateManagerScript.instance.profile;
+        int profile = GamestateManagerScript.instance.lastProfile;
         if (goodDates.Contains(profile))
         {
             _img.sprite = photostrips[2];
@@ -52,7 +52,7 @@ public class PhotostripScript : MonoBehaviour
             }
         }
 
-        gameObject.transform.DOMoveY(400, 0.2f).SetEase(Ease.OutBack);
+        gameObject.transform.DOMoveY(400, 0.5f).SetEase(Ease.OutBack);
     }
 
     public void Disappear()

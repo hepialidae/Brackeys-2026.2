@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GamestateManagerScript : MonoBehaviour
 {
     public static GamestateManagerScript instance;
     public int day { get; private set; } = 1;
-    public int profile { get; private set; } = 0;
+    public int profile { get; private set; }
+    public int lastProfile { get; private set; }
     public int rejectCount { get; private set; } = 0;
     private int[] day1_guys = new int[6];
     private int[] day2_guys = new int[6];
@@ -29,20 +29,21 @@ public class GamestateManagerScript : MonoBehaviour
     void Start()
     {
         SetProfileOrder();
-        profile = day1_guys[0];
         
         EventManagerScript.instance.OnNoMatch += NextGuy;
         EventManagerScript.instance.OnNoMatch += AddRejection;
+        EventManagerScript.instance.OnEndChat += NextGuy;
+        EventManagerScript.instance.OnEndChat += AddRejection;
         EventManagerScript.instance.OnDateStart += NextGuy;
-        EventManagerScript.instance.OnDateStart += AddRejection;
     }
 
     void OnDisable()
     {
         EventManagerScript.instance.OnNoMatch -= NextGuy;
         EventManagerScript.instance.OnNoMatch -= AddRejection;
+        EventManagerScript.instance.OnEndChat -= NextGuy;
+        EventManagerScript.instance.OnEndChat -= AddRejection;
         EventManagerScript.instance.OnDateStart -= NextGuy;
-        EventManagerScript.instance.OnDateStart -= AddRejection;
     }
 
     public void NextDay()
@@ -75,6 +76,7 @@ public class GamestateManagerScript : MonoBehaviour
 
     public void NextGuy()
     {
+        lastProfile = profile;
         int profileIndex = GetProfileIndex(profile);
         if (profileIndex <= 5)
         {
@@ -167,5 +169,7 @@ public class GamestateManagerScript : MonoBehaviour
         Shuffle<int>(day1_guys);
         Shuffle<int>(day2_guys);
         Shuffle<int>(day3_guys);
+
+        profile = day1_guys[0];
     }
 }

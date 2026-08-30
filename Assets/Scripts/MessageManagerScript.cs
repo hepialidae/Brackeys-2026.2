@@ -33,6 +33,7 @@ public class MessageManagerScript : MonoBehaviour
     void OnDisable() 
     {
         EventManagerScript.instance.OnSendMessage.RemoveListener(SpawnMessage);
+        EventManagerScript.instance.OnMatch2 -= StartNewChat;
     }
 
     private void SpawnMessage(string text, string alignment) // right_x = 439, left_x = -438

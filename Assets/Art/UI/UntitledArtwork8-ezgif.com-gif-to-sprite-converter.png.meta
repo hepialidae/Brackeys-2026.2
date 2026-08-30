@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: 8b94decffd1b64dbdbc388b6eaa7d1ec
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 700674436587908630
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_0
+  - first:
+      213: -3927242708974196136
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_1
+  - first:
+      213: -1447682856011876007
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_2
+  - first:
+      213: 5326714636370989403
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_3
+  - first:
+      213: -4462228044948555214
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_4
+  - first:
+      213: -4236573870474445814
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_5
+  - first:
+      213: -6355943553973170035
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_6
+  - first:
+      213: -9015390719086872022
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_7
+  - first:
+      213: -3241718428110115880
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_8
+  - first:
+      213: -3216975377792103984
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_9
+  - first:
+      213: 413024889523544035
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_10
+  - first:
+      213: -3432101095589798822
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_11
+  - first:
+      213: 884146654571402492
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_12
+  - first:
+      213: 4414061793040425048
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_13
+  - first:
+      213: 8184257356749281817
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_14
+  - first:
+      213: 5233538733024074772
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_15
+  - first:
+      213: 8440989003538670151
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_16
+  - first:
+      213: 8807062764181692594
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_17
+  - first:
+      213: 3178970566678044262
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_18
+  - first:
+      213: 2976619058571010698
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_19
+  - first:
+      213: -7913221475271339647
+    second: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_0
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 8179
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61ee40010bb49b900800000000000000
+      internalID: 700674436587908630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_1
+      rect:
+        serializedVersion: 2
+        x: 2373
+        y: 8179
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85aa9d84091af79c0800000000000000
+      internalID: -3927242708974196136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_2
+      rect:
+        serializedVersion: 2
+        x: 4293
+        y: 8179
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9593df3dc1cc8ebe0800000000000000
+      internalID: -1447682856011876007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_3
+      rect:
+        serializedVersion: 2
+        x: 6213
+        y: 8179
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5154c85dba4ce940800000000000000
+      internalID: 5326714636370989403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_4
+      rect:
+        serializedVersion: 2
+        x: 8133
+        y: 8179
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23a3e0a2c3bf212c0800000000000000
+      internalID: -4462228044948555214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_5
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 6259
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0c3ba9d28aa435c0800000000000000
+      internalID: -4236573870474445814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_6
+      rect:
+        serializedVersion: 2
+        x: 2373
+        y: 6259
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d80defc43072bc7a0800000000000000
+      internalID: -6355943553973170035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_7
+      rect:
+        serializedVersion: 2
+        x: 4293
+        y: 6259
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2a397518e5e2e280800000000000000
+      internalID: -9015390719086872022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_8
+      rect:
+        serializedVersion: 2
+        x: 6213
+        y: 6259
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dba8a6d34a1303d0800000000000000
+      internalID: -3241718428110115880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_9
+      rect:
+        serializedVersion: 2
+        x: 8133
+        y: 6259
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d9068b20f10b53d0800000000000000
+      internalID: -3216975377792103984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_10
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 4339
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ef127fd2fb5bb500800000000000000
+      internalID: 413024889523544035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_11
+      rect:
+        serializedVersion: 2
+        x: 2373
+        y: 4339
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5c1424dc3abe50d0800000000000000
+      internalID: -3432101095589798822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_12
+      rect:
+        serializedVersion: 2
+        x: 4293
+        y: 4339
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf4141ba2be154c00800000000000000
+      internalID: 884146654571402492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_13
+      rect:
+        serializedVersion: 2
+        x: 6213
+        y: 4339
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8506cc660d5e14d30800000000000000
+      internalID: 4414061793040425048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_14
+      rect:
+        serializedVersion: 2
+        x: 8133
+        y: 4339
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91a1b6334b2549170800000000000000
+      internalID: 8184257356749281817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_15
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 2419
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41cd52ccfb341a840800000000000000
+      internalID: 5233538733024074772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_16
+      rect:
+        serializedVersion: 2
+        x: 2373
+        y: 2419
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 742a6e4c6ca642570800000000000000
+      internalID: 8440989003538670151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_17
+      rect:
+        serializedVersion: 2
+        x: 4293
+        y: 2419
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b0ae951ce8f83a70800000000000000
+      internalID: 8807062764181692594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_18
+      rect:
+        serializedVersion: 2
+        x: 6213
+        y: 2419
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66e544233e8fd1c20800000000000000
+      internalID: 3178970566678044262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_19
+      rect:
+        serializedVersion: 2
+        x: 8133
+        y: 2419
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8268c153431f4920800000000000000
+      internalID: 2976619058571010698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UntitledArtwork8-ezgif.com-gif-to-sprite-converter_20
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 499
+        width: 1013
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18195798ef69e2290800000000000000
+      internalID: -7913221475271339647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_0: 700674436587908630
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_1: -3927242708974196136
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_10: 413024889523544035
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_11: -3432101095589798822
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_12: 884146654571402492
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_13: 4414061793040425048
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_14: 8184257356749281817
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_15: 5233538733024074772
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_16: 8440989003538670151
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_17: 8807062764181692594
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_18: 3178970566678044262
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_19: 2976619058571010698
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_2: -1447682856011876007
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_20: -7913221475271339647
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_3: 5326714636370989403
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_4: -4462228044948555214
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_5: -4236573870474445814
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_6: -6355943553973170035
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_7: -9015390719086872022
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_8: -3241718428110115880
+      UntitledArtwork8-ezgif.com-gif-to-sprite-converter_9: -3216975377792103984
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

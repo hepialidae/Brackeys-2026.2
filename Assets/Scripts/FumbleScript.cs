@@ -27,6 +27,8 @@ public class FumbleScript : MonoBehaviour
         EventManagerScript.instance.OnNoMatch2 += SetProfile;
         EventManagerScript.instance.OnEndChat += EnableButtons;
         EventManagerScript.instance.OnEndChat2 += SetProfile;
+        EventManagerScript.instance.OnDateStart2 += EnableButtons;
+        EventManagerScript.instance.OnDateStart2 += SetProfile;
 
         SetProfile();
     }
@@ -35,6 +37,10 @@ public class FumbleScript : MonoBehaviour
     {
         EventManagerScript.instance.OnMatch -= DisableButtons;
         EventManagerScript.instance.OnNoMatch2 -= SetProfile;
+        EventManagerScript.instance.OnEndChat -= EnableButtons;
+        EventManagerScript.instance.OnEndChat2 -= SetProfile;
+        EventManagerScript.instance.OnDateStart2 -= EnableButtons;
+        EventManagerScript.instance.OnDateStart2 -= SetProfile;
     }
 
     private void SetProfile() 

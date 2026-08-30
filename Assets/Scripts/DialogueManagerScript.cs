@@ -22,7 +22,7 @@ public class DialogueManagerScript : MonoBehaviour
 
     [Header("Debug/Testing")]
     [SerializeField] TextAsset inkJSON;
-    [SerializeField] string knotName = null;
+    // [SerializeField] string knotName = null;
 
     void Awake()
     {
@@ -97,7 +97,7 @@ public class DialogueManagerScript : MonoBehaviour
     {
         currentStory.BindExternalFunction("EndChat", () =>
         {
-            EventManagerScript.instance.InvokeEndChat();
+            StartCoroutine(EventManagerScript.instance.InvokeEndChat());
         });
     }
 
@@ -105,7 +105,7 @@ public class DialogueManagerScript : MonoBehaviour
     {
         currentStory.BindExternalFunction("Date", () =>
         {
-            EventManagerScript.instance.InvokeDateStart();
+            StartCoroutine(EventManagerScript.instance.InvokeDateStart());
         });
     }
 
@@ -120,7 +120,6 @@ public class DialogueManagerScript : MonoBehaviour
         if (currentStory.canContinue)
         {
             _currentText = currentStory.Continue();
-            Debug.Log(_currentText);
             DisplayChoices();
 
             List<string> lineTags = currentStory.currentTags;
@@ -137,15 +136,9 @@ public class DialogueManagerScript : MonoBehaviour
             }
             else
             {
-                if (_currentText == "")
+                if (lineTags.Count == 0)
                 {
-                    Debug.LogWarning("Empty _currentText. Knot: " + knotName);
-                } else
-                {
-                    if (lineTags.Count == 0)
-                    {
-                        Debug.LogWarning("No alignment found. Line: " + _currentText);
-                    }
+                    Debug.LogWarning("No alignment found. Line: " + _currentText);
                 }
             }
         }
