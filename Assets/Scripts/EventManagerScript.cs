@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +10,8 @@ public class EventManagerScript : MonoBehaviour
 
     [Serializable]
     public class MessageEvent : UnityEvent<string, string> { }
+    [Serializable]
+    public class IntEvent : UnityEvent<int> { }
 
     void Awake()
     {
@@ -21,6 +24,12 @@ public class EventManagerScript : MonoBehaviour
         {
             instance = this;
         }
+    }
+
+    public IntEvent NextDay;
+    public void InvokeNextDay(int currentDay)
+    {
+        NextDay.Invoke(currentDay);
     }
 
     public MessageEvent OnSendMessage;
@@ -45,11 +54,16 @@ public class EventManagerScript : MonoBehaviour
         OnMatch2.Invoke();
     }
 
-    public event Action OnNoMatch;
-    public event Action OnNoMatch2;
-    public event Action OnNoMatch3;
+    public event Action OnNoMatch; // Calculates next guy, adds +1 rejection
+    public event Action OnNoMatch2; // Fumble gets a new profile, status window opens
+    public event Action OnNoMatch3; // Status manager updates
     public IEnumerator InvokeNoMatch()
     {
+        if (GamestateManagerScript.instance.GetProfileIndex(GamestateManagerScript.instance.profile) == 5)
+        {
+            InvokeNextDay(GamestateManagerScript.instance.day + 1);
+        }
+
         OnNoMatch.Invoke();
         yield return null;
         OnNoMatch2.Invoke();
@@ -66,16 +80,22 @@ public class EventManagerScript : MonoBehaviour
         };
         if (temp)
         {
+            Debug.Log("OnNoMatch3 invoked");
             yield return null;
             OnNoMatch3.Invoke();
         }
     }
 
-    public event Action OnEndChat;
-    public event Action OnEndChat2;
-    public event Action OnEndChat3;
+    public event Action OnEndChat; // Opens Fumble, GamestateManager NextGuy and +1 rejection
+    public event Action OnEndChat2; // Enables Fumble buttons, Refreshes profile, (conditional) Opens status window
+    public event Action OnEndChat3; // (Conditional) Updates status window
     public IEnumerator InvokeEndChat()
     {
+        if (GamestateManagerScript.instance.GetProfileIndex(GamestateManagerScript.instance.profile) == 5)
+        {
+            InvokeNextDay(GamestateManagerScript.instance.day + 1);
+        }
+
         OnEndChat.Invoke();
         yield return null;
         OnEndChat2.Invoke();
@@ -97,16 +117,14 @@ public class EventManagerScript : MonoBehaviour
         }
     }
 
-    public event Action OnDateStart;
-    public event Action OnDateStart2;
-    public event Action OnDateStart3;
+    public event Action OnDateStart; // Starts LeaveHomeAnim
+    public event Action OnDateStart2; // Photostrip Appear, StatusIcon ConditionalOpenWindow
+    public event Action OnDateStart3; // Status Window updates
+    public event Action OnDateEnd; // Opens Fumble, GamestateManager NextGuy
+    public event Action OnDateEnd2; // Enables Fumble buttons, Refreshes profile
     public IEnumerator InvokeDateStart()
     {
-        OnDateStart.Invoke();
-        yield return new WaitForSeconds(2f);
-        OnDateStart2.Invoke();
-
-        bool temp = GamestateManagerScript.instance.lastProfile switch
+        bool temp = GamestateManagerScript.instance.profile switch
         {
             12 => false,
             13 => false,
@@ -116,11 +134,50 @@ public class EventManagerScript : MonoBehaviour
             17 => false,
             _ => true
         };
+
+        if (!temp)
+        {
+            BadEnding.Invoke();
+        }
+
+        OnDateStart.Invoke();
+        yield return new WaitForSeconds(2f);
+        OnDateStart2.Invoke();
+        
         if (temp)
         {
             Debug.Log("InvokeDateStart Temp: " + temp);
             yield return null;
             OnDateStart3.Invoke();
         }
+
+        if (GamestateManagerScript.instance.profile == GamestateManagerScript.instance.designatedProfile)
+        {
+            InvokeGoodEnding();
+        }
+
+        if (GamestateManagerScript.instance.GetProfileIndex(GamestateManagerScript.instance.profile) == 5)
+        {
+            InvokeNextDay(GamestateManagerScript.instance.day + 1);
+            yield return null;
+        }
+
+        OnDateEnd.Invoke();
+        yield return null;
+        OnDateEnd2.Invoke();
+    }
+
+    public event Action BadEnding;
+
+    public event Action NeutralEnding;
+    public void InvokeNeutralEnding()
+    {
+        NeutralEnding.Invoke();
+    }
+
+    public event Action GoodEnding;
+    public void InvokeGoodEnding()
+    {
+        GoodEnding.Invoke();
     }
 }

@@ -13,7 +13,7 @@ public class FumbleIconScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
         _img = GetComponent<UnityEngine.UI.Image>();
 
         EventManagerScript.instance.OnEndChat += OpenWindow;
-        EventManagerScript.instance.OnDateStart += OpenWindow;
+        EventManagerScript.instance.OnDateEnd += OpenWindow;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

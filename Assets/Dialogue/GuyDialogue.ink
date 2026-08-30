@@ -319,8 +319,8 @@ You’re really pretty # left
 - People judge others based on looks # left
 You can even get out of jail if you look good # left
 That’s why I want to get plastic surgery to get hunter eyes and be more attractive to females # left
-So…
-Want to grab a drink?
+So… # left
+Want to grab a drink? # left
 * Sure! # right
 	Oh nice! See you at the bar then # left
 	~ Date()
@@ -595,7 +595,7 @@ So, what do you work as? # left
 Pelican Island # right
 Which street exactly? # left
 * [Tell him your address] 123 Red Pool Street # right
-	Come outside.
+	Come outside. # left
 	~ Date()
 	-> END
 * Why do you need to know? # right
@@ -612,17 +612,24 @@ Hey, we matched! # left
 * What do you do in your free time? # right
 	I don’t really like going outside, if I’m being honest # left
 	I prefer more indoorsy activities # left
-	* Like what? # right
+	-> guy18_1
+
+== guy18_1 == 
+* Like what? # right
 		I really like knitting little sweaters for my cat…but don’t tell anyone. # left
+		-> guy18_2
 	* Do you like sports? # right
 		Not really, I get tired really easily.
+		-> guy18_2
+
+== guy18_2==
 - Would you like to go to a coffee shop with me? I know a nice, quiet place we can sit and chat # left
-* Sure! # right
-    Great! I’ll see you there. # left
-    ~ Date()
-    -> END
-* No thanks. # right
-	Is it because I’m too manly? # left
+    * Sure! # right
+        Great! I’ll see you there. # left
+        ~ Date()
+        -> END
+    * No thanks. # right
+	    Is it because I’m too manly? # left
 	~ EndChat()
 	-> END
 

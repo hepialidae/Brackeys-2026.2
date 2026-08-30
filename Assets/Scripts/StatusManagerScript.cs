@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class StatusManagerScript : MonoBehaviour
@@ -15,10 +14,13 @@ public class StatusManagerScript : MonoBehaviour
     {
         _img = GetComponentInChildren<UnityEngine.UI.Image>();
         _text = GetComponentInChildren<TextMeshProUGUI>();
+    }
 
+    void OnEnable()
+    {
         EventManagerScript.instance.OnNoMatch3 += BulletDodged;
         EventManagerScript.instance.OnEndChat3 += BulletDodged;
-        EventManagerScript.instance.OnDateStart3 += Date;
+        EventManagerScript.instance.OnDateStart3 += Date;        
     }
 
     void OnDisable()
@@ -30,7 +32,6 @@ public class StatusManagerScript : MonoBehaviour
 
     private void BulletDodged()
     {
-        Debug.Log("Status BulletDodged");
         _img.sprite = sprites[3];
         _text.text = statuses[3];
     }
@@ -38,7 +39,7 @@ public class StatusManagerScript : MonoBehaviour
     private void Date()
     {
         Debug.Log("Dating");
-        int temp = GamestateManagerScript.instance.lastProfile switch
+        int temp = GamestateManagerScript.instance.profile switch
         {
             0 => 0,
             1 => 0,

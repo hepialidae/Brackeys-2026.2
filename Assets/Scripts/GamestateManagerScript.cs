@@ -8,6 +8,7 @@ public class GamestateManagerScript : MonoBehaviour
     public int day { get; private set; } = 1;
     public int profile { get; private set; }
     public int lastProfile { get; private set; }
+    public int designatedProfile { get; private set; } = 4;
     public int rejectCount { get; private set; } = 0;
     private int[] day1_guys = new int[6];
     private int[] day2_guys = new int[6];
@@ -34,7 +35,15 @@ public class GamestateManagerScript : MonoBehaviour
         EventManagerScript.instance.OnNoMatch += AddRejection;
         EventManagerScript.instance.OnEndChat += NextGuy;
         EventManagerScript.instance.OnEndChat += AddRejection;
-        EventManagerScript.instance.OnDateStart += NextGuy;
+        EventManagerScript.instance.OnDateEnd += NextGuy;
+        EventManagerScript.instance.NextDay.AddListener(NextDay);
+
+        List<int> day1s = new List<int> { };
+        foreach (int guy in day1_guys)
+        {
+            day1s.Add(guy);
+        }
+        Debug.Log("Day 1: " + string.Join(" ", day1s));
     }
 
     void OnDisable()
@@ -43,11 +52,16 @@ public class GamestateManagerScript : MonoBehaviour
         EventManagerScript.instance.OnNoMatch -= AddRejection;
         EventManagerScript.instance.OnEndChat -= NextGuy;
         EventManagerScript.instance.OnEndChat -= AddRejection;
-        EventManagerScript.instance.OnDateStart -= NextGuy;
+        EventManagerScript.instance.NextDay.RemoveListener(NextDay);
     }
 
-    public void NextDay()
+    public void NextDay(int currentDay)
     {
+        if (currentDay == 4)
+        {
+            EventManagerScript.instance.InvokeNeutralEnding();
+            return;
+        }
         day += 1;
     }
 

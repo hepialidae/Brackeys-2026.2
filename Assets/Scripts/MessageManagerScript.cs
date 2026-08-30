@@ -25,7 +25,10 @@ public class MessageManagerScript : MonoBehaviour
     {
         _parent = GameObject.Find("Messages");
         _parentTransform = _parent.GetComponent<RectTransform>();
+    }
 
+    void OnEnable()
+    {
         EventManagerScript.instance.OnSendMessage.AddListener(SpawnMessage);
         EventManagerScript.instance.OnMatch2 += StartNewChat;
     }

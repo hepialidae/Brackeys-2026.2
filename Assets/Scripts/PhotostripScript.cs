@@ -1,7 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 
 public class PhotostripScript : MonoBehaviour
 {
@@ -27,7 +26,7 @@ public class PhotostripScript : MonoBehaviour
         Vector3 pos = new Vector3(0, -930, 0);
         _transform.anchoredPosition = pos;
 
-        int profile = GamestateManagerScript.instance.lastProfile;
+        int profile = GamestateManagerScript.instance.profile;
         if (goodDates.Contains(profile))
         {
             _img.sprite = photostrips[2];
