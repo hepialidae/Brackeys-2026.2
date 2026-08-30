@@ -85,10 +85,8 @@ public class DialogueManagerScript : MonoBehaviour
         currentStory.ChoosePathString(knotName);
 
         BindEndChat();
-        if (knotName.Contains("guy"))
-        {
-            BindDate();
-        }
+        BindDate();
+        BindEndStalker();
 
         ContinueStory();
     }
@@ -109,6 +107,15 @@ public class DialogueManagerScript : MonoBehaviour
         });
     }
 
+    public void BindEndStalker()
+    {
+        currentStory.BindExternalFunction("EndStalker", () =>
+        {
+            EventManagerScript.instance.InvokeNextDay(GamestateManagerScript.instance.day + 1);
+            StartCoroutine(EventManagerScript.instance.InvokeDateEnd());
+        });
+    }
+
     private void ExitDialogueMode()
     {
         DialogueIsPlaying = false;
@@ -119,6 +126,7 @@ public class DialogueManagerScript : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
+            Debug.Log(_currentText);
             _currentText = currentStory.Continue();
             DisplayChoices();
 
@@ -127,6 +135,7 @@ public class DialogueManagerScript : MonoBehaviour
             {
                 if (lineTags[0] != "left" || lineTags[0] != "right")
                 {
+                    Debug.Log("InvokeSendMessage");
                     EventManagerScript.instance.InvokeSendMessage(_currentText, lineTags[0]);
                 }
                 else
@@ -174,6 +183,7 @@ public class DialogueManagerScript : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
+        AudioManagerScript.instance.Play(AudioManagerScript.instance.whoosh);
         currentStory.ChooseChoiceIndex(choiceIndex);
         ContinueStory();
 

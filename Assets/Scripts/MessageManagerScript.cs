@@ -13,11 +13,13 @@ public class MessageManagerScript : MonoBehaviour
     [SerializeField] private GameObject _messageBox;
     [SerializeField] private TextMeshProUGUI _contactNameTMP;
     [SerializeField] private string[] names;
+    [SerializeField] private Scrollbar _sb;
     private GameObject _parent;
     private RectTransform _parentTransform;
     public bool IsNewChat { get; private set; } = true;
     private List<GameObject> _messageHistory = new List<GameObject>();
     private Vector3 spawnPos;
+    private Vector2 _parentSpawnPos;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,18 +27,22 @@ public class MessageManagerScript : MonoBehaviour
     {
         _parent = GameObject.Find("Messages");
         _parentTransform = _parent.GetComponent<RectTransform>();
+
+        _parentSpawnPos = _parentTransform.anchoredPosition;
     }
 
     void OnEnable()
     {
         EventManagerScript.instance.OnSendMessage.AddListener(SpawnMessage);
         EventManagerScript.instance.OnMatch2 += StartNewChat;
+        EventManagerScript.instance.stalker2 += StartChatStalker;
     }
 
     void OnDisable() 
     {
         EventManagerScript.instance.OnSendMessage.RemoveListener(SpawnMessage);
         EventManagerScript.instance.OnMatch2 -= StartNewChat;
+        EventManagerScript.instance.stalker2 -= StartChatStalker;
     }
 
     private void SpawnMessage(string text, string alignment) // right_x = 439, left_x = -438
@@ -138,6 +144,20 @@ public class MessageManagerScript : MonoBehaviour
         IsNewChat = true;
         _contactNameTMP.text = names[GamestateManagerScript.instance.profile];
         string knotName = "guy" + (GamestateManagerScript.instance.profile + 1);
+        _parentTransform.anchoredPosition = _parentSpawnPos;
         DialogueManagerScript.GetInstance().EnterDialogueMode(knotName);
+    }
+
+    private void StartChatStalker() {
+        foreach (GameObject message in _messageHistory)
+        {
+            Destroy(message);
+        }
+
+        _messageHistory.Clear();
+        IsNewChat = true;
+        _contactNameTMP.text = "???";
+        _parentTransform.anchoredPosition = _parentSpawnPos;
+        DialogueManagerScript.GetInstance().EnterDialogueMode("stalker");
     }
 }

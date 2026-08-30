@@ -4201,6 +4201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f30a2b88d1ecc4e46bb8a3d2300e9320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  datedBeforeStalker: 0
 --- !u!4 &756869111
 Transform:
   m_ObjectHideFlags: 0
@@ -5340,6 +5341,7 @@ MonoBehaviour:
   - Samuel
   - 
   - Jordan
+  _sb: {fileID: 11608651}
 --- !u!1 &1124896376
 GameObject:
   m_ObjectHideFlags: 0
@@ -5917,50 +5919,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187935622}
   m_CullTransparentMesh: 1
---- !u!1 &1191059343
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1191059345}
-  - component: {fileID: 1191059344}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1191059344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191059343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67e255f3f165746e4a4f3961ba71614b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
---- !u!4 &1191059345
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191059343}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1077.1097, y: 538.04626, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1222236698
 GameObject:
   m_ObjectHideFlags: 0
@@ -6187,7 +6145,7 @@ MonoBehaviour:
   - {fileID: 7043107391974538758, guid: ccba4e34495e94966b0116a16426c63b, type: 3}
   - {fileID: -7967514569817718973, guid: bd3ee2700ed444eb282426452bc2c6f0, type: 3}
   - {fileID: -96842475449585161, guid: e90c32914731a4585a2c4781cb93125d, type: 3}
-  - {fileID: -8789973194571459211, guid: 8803f35678267490d9ba21fe88a40ca6, type: 3}
+  - {fileID: -3395985140677852665, guid: 731b3daf2f81949669668c597a80e29e, type: 3}
   - {fileID: -1603300729801175361, guid: f5e05b41b28c24559a6dfc02ec65c0a2, type: 3}
   - {fileID: 8760012716470886072, guid: fc329e3b7938245cf86c6dfb629eaafa, type: 3}
   - {fileID: 7589620466592715875, guid: 0aa48c76dbde6462b9bd501576903f36, type: 3}
@@ -6205,7 +6163,7 @@ MonoBehaviour:
   - Steve, 47
   - DeShawn, 25
   - Jimmy, 26
-  - Stalker, ??
+  - Yours, Forever
   - 'Ryan, 27 '
   - Samuel, 22
   - Leo, 23
@@ -7174,7 +7132,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 28}
+  m_AnchoredPosition: {x: 0, y: 0.00012207031}
   m_SizeDelta: {x: 1875, y: 2321.015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1618352371
@@ -7938,56 +7896,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1755396336
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1755396338}
-  - component: {fileID: 1755396337}
-  m_Layer: 0
-  m_Name: EventManagerSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1755396337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1755396336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a0d467fb15de494da28ba307980b70a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  NextDay:
-    m_PersistentCalls:
-      m_Calls: []
-  OnSendMessage:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!4 &1755396338
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1755396336}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1178.2646, y: 589.19476, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9173,8 +9081,6 @@ SceneRoots:
   - {fileID: 506803855}
   - {fileID: 1747482916}
   - {fileID: 299637761}
-  - {fileID: 1755396338}
   - {fileID: 54210196}
   - {fileID: 756869111}
   - {fileID: 1440330204}
-  - {fileID: 1191059345}

@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -82,17 +81,51 @@ public class StoryManagerScript : MonoBehaviour
     {
         badEnding_canvas.SetActive(true);
         badEnding_director.Play();
+        switch (GamestateManagerScript.instance.day)
+        {
+            case 1:
+                AudioManagerScript.instance.Stop(AudioManagerScript.instance.day1);
+                break;
+            case 2:
+                AudioManagerScript.instance.Stop(AudioManagerScript.instance.day2);
+                break;
+            case 3:
+                AudioManagerScript.instance.Stop(AudioManagerScript.instance.day3);
+                break;
+            default:
+                AudioManagerScript.instance.Stop(AudioManagerScript.instance.click);
+                break;
+        };
+        AudioManagerScript.instance.Play(AudioManagerScript.instance.scream);
     }
 
     private void NeutralEnding()
     {
         neutralEnding_canvas.SetActive(true);
         neutralEnding_director.Play();
+        AudioManagerScript.instance.FadeOut(AudioManagerScript.instance.day3, 0.1f);
+        AudioManagerScript.instance.FadeIn(AudioManagerScript.instance.neutralEnding, 0.3f);
     }
 
     private void GoodEnding()
     {
         goodEnding_canvas.SetActive(true);
         goodEnding_director.Play();
+        switch (GamestateManagerScript.instance.day)
+        {
+            case 1:
+                AudioManagerScript.instance.FadeOut(AudioManagerScript.instance.day1, 0.1f);
+                break;
+            case 2:
+                AudioManagerScript.instance.FadeOut(AudioManagerScript.instance.day2, 0.1f);
+                break;
+            case 3:
+                AudioManagerScript.instance.FadeOut(AudioManagerScript.instance.day3, 0.1f);
+                break;
+            default:
+                AudioManagerScript.instance.Stop(AudioManagerScript.instance.click);
+                break;
+        };
+        AudioManagerScript.instance.FadeIn(AudioManagerScript.instance.goodEnding, 0.3f);
     }
 }

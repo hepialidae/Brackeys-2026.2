@@ -51,7 +51,9 @@ public class PhotostripScript : MonoBehaviour
             }
         }
 
-        gameObject.transform.DOMoveY(400, 0.5f).SetEase(Ease.OutBack);
+        AudioManagerScript.instance.Play(AudioManagerScript.instance.photoPrint);
+
+        gameObject.transform.DOMoveY(400, 1f).SetEase(Ease.OutBack);
     }
 
     public void Disappear()

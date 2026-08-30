@@ -10,6 +10,7 @@ public class GamestateManagerScript : MonoBehaviour
     public int lastProfile { get; private set; }
     public int designatedProfile { get; private set; } = 4;
     public int rejectCount { get; private set; } = 0;
+    public bool datedBeforeStalker = false;
     private int[] day1_guys = new int[6];
     private int[] day2_guys = new int[6];
     private int[] day3_guys = new int[6]; 

@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem.LowLevel;
 
 public class EventManagerScript : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class EventManagerScript : MonoBehaviour
         else
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -30,6 +32,15 @@ public class EventManagerScript : MonoBehaviour
     public void InvokeNextDay(int currentDay)
     {
         NextDay.Invoke(currentDay);
+    }
+
+    public event Action stalker;
+    public event Action stalker2;
+    public IEnumerator InvokeStalker()
+    {
+        stalker.Invoke();
+        yield return null;
+        stalker2.Invoke();
     }
 
     public MessageEvent OnSendMessage;
@@ -59,30 +70,43 @@ public class EventManagerScript : MonoBehaviour
     public event Action OnNoMatch3; // Status manager updates
     public IEnumerator InvokeNoMatch()
     {
+        bool keepGoing = new bool {};
+        keepGoing = true;
         if (GamestateManagerScript.instance.GetProfileIndex(GamestateManagerScript.instance.profile) == 5)
         {
-            InvokeNextDay(GamestateManagerScript.instance.day + 1);
+            if (GamestateManagerScript.instance.day == 1)
+            {
+                StartCoroutine(InvokeStalker());
+                keepGoing = false;
+            }
+            else
+            {
+                InvokeNextDay(GamestateManagerScript.instance.day + 1);
+            }
         }
 
-        OnNoMatch.Invoke();
-        yield return null;
-        OnNoMatch2.Invoke();
-
-        bool temp = GamestateManagerScript.instance.lastProfile switch
+        if (keepGoing)
         {
-            12 => true,
-            13 => true,
-            14 => true,
-            15 => true,
-            16 => true,
-            17 => true,
-            _ => false
-        };
-        if (temp)
-        {
-            Debug.Log("OnNoMatch3 invoked");
+            OnNoMatch.Invoke();
             yield return null;
-            OnNoMatch3.Invoke();
+            OnNoMatch2.Invoke();
+
+            bool temp = GamestateManagerScript.instance.lastProfile switch
+            {
+                12 => true,
+                13 => true,
+                14 => true,
+                15 => true,
+                16 => true,
+                17 => true,
+                _ => false
+            };
+            if (temp)
+            {
+                Debug.Log("OnNoMatch3 invoked");
+                yield return null;
+                OnNoMatch3.Invoke();
+            }
         }
     }
 
@@ -91,29 +115,42 @@ public class EventManagerScript : MonoBehaviour
     public event Action OnEndChat3; // (Conditional) Updates status window
     public IEnumerator InvokeEndChat()
     {
+        bool keepGoing = new bool {};
+        keepGoing = true;
         if (GamestateManagerScript.instance.GetProfileIndex(GamestateManagerScript.instance.profile) == 5)
         {
-            InvokeNextDay(GamestateManagerScript.instance.day + 1);
+            if (GamestateManagerScript.instance.day == 1)
+            {
+                StartCoroutine(InvokeStalker());
+                keepGoing = false;
+            }
+            else
+            {
+                InvokeNextDay(GamestateManagerScript.instance.day + 1);
+            }
         }
 
-        OnEndChat.Invoke();
-        yield return null;
-        OnEndChat2.Invoke();
-
-        bool temp = GamestateManagerScript.instance.lastProfile switch
+        if (keepGoing)
         {
-            12 => true,
-            13 => true,
-            14 => true,
-            15 => true,
-            16 => true,
-            17 => true,
-            _ => false
-        };
-        if (temp)
-        {
+            OnEndChat.Invoke();
             yield return null;
-            OnEndChat3.Invoke();
+            OnEndChat2.Invoke();
+
+            bool temp = GamestateManagerScript.instance.lastProfile switch
+            {
+                12 => true,
+                13 => true,
+                14 => true,
+                15 => true,
+                16 => true,
+                17 => true,
+                _ => false
+            };
+            if (temp)
+            {
+                yield return null;
+                OnEndChat3.Invoke();
+            }
         }
     }
 
@@ -156,15 +193,27 @@ public class EventManagerScript : MonoBehaviour
             InvokeGoodEnding();
         }
 
+
         if (GamestateManagerScript.instance.GetProfileIndex(GamestateManagerScript.instance.profile) == 5)
         {
-            InvokeNextDay(GamestateManagerScript.instance.day + 1);
-            yield return null;
+            if (GamestateManagerScript.instance.day == 1)
+            {
+                GamestateManagerScript.instance.datedBeforeStalker = true;
+                StartCoroutine(InvokeStalker());
+            }
+            else
+            {
+                InvokeNextDay(GamestateManagerScript.instance.day + 1);
+                yield return null;
+            }
         }
 
-        OnDateEnd.Invoke();
-        yield return null;
-        OnDateEnd2.Invoke();
+        if (!GamestateManagerScript.instance.datedBeforeStalker)
+        {
+            OnDateEnd.Invoke();
+            yield return null;
+            OnDateEnd2.Invoke();
+        }
     }
 
     public event Action BadEnding;
@@ -179,5 +228,13 @@ public class EventManagerScript : MonoBehaviour
     public void InvokeGoodEnding()
     {
         GoodEnding.Invoke();
+    }
+
+    public IEnumerator InvokeDateEnd()
+    {
+        yield return null;
+        OnDateEnd.Invoke();
+        yield return null;
+        OnDateEnd2.Invoke();
     }
 }

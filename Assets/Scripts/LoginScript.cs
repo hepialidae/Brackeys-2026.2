@@ -10,7 +10,8 @@ public class LoginScript : MonoBehaviour
     }
     private IEnumerator Clicked()
     {
-        yield return new WaitForSeconds(0.5f);
+        AudioManagerScript.instance.Play(AudioManagerScript.instance.click);
+        yield return new WaitForSeconds(0.3f);
         SceneManager.LoadScene("SampleScene");
     }
 }

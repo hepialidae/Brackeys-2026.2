@@ -1,5 +1,6 @@
 EXTERNAL EndChat()
 EXTERNAL Date()
+EXTERNAL EndStalker()
 
 ===guy1===
 Hey there, how's it going? # left
@@ -9,7 +10,7 @@ Just like any other day. # right
 	Yeah. Writing has been my favourite activity since I was a small child. # left
 	Awesome, I wished I had meaningful hobbies when I was little. # right
 * What books did you read? # right
-	I’m glad you asked! I read all kinds of books but my favorites are, The Stranger, Moby Dick, Wuthering Heights, Don Quixote, The Odyssey and Metamorphosis. # left
+	I’m glad you asked! I read all kinds of books but my favorite is Wuthering Heights. # left
 	That’s a lot of books! They aren’t short books either. # right
 - How about you, what do you like? # left
 
@@ -19,12 +20,14 @@ Just like any other day. # right
     -> guy1knot2
 
 ==guy1knot1==
-Wow! It’s hard to see a kindred spirit where everyone just stares into the endless void that is phones. #left 
-I have a library membership card that could be spared. If you’re free, would you want to go there with me? #left
+Wow! It’s rare see a kindred spirit here # left
+Everyone just stares into the endless void that is phones nowadays. #left 
+I have a library membership card that could be spared. # left
+If you’re free, would you want to go there with me? #left
 * Sure. sounds fun. #right
 	~ Date()
 	-> END
-* No thanks book nerd.
+* No thanks book nerd. # right
     Oh. Then have a good rest of your day. #left
     ~ EndChat()
 	-> END
@@ -57,9 +60,9 @@ I love your taste in fashion # left
 I'm an independent singer-songwriter! # left
 It's really tough fighting the labels for a spot in the market, but I've managed to make it work so far # left
 Would you like to come to karaoke with me? # left
-Don't worry if you're not good at singing, we can just have fun screaming classics pop songs! # left
+Don't worry if you're not good at singing, we can just have fun screaming classic pop songs! # left
 * Sure. I would love to. # right
-    Amazing! I'll book the room!
+    Amazing! I'll book the room!# left
     ~ Date()
 	-> END
 * No thanks. # right
@@ -74,7 +77,7 @@ Since I have nothing to do today... # left
 Want to come to the animal shelter with me? # left
 I'll introduce you to all the animals!!!! You're gonna love it # left
 * Sure. I would love to. # right
-    Amazing! I'll let the staff know we're coming!
+    Amazing! I'll let the staff know we're coming! # left
     ~ Date()
 	-> END
 * No thanks. # right
@@ -88,7 +91,9 @@ Hey there! Your profile looks great. #left
 * So you’re a student currently?.#right
     -> guy3_1
 * Yours sucks.
-    It is impossible to have bad taste, but many people have none at all. Even in an infinite universe, your unique brand of absurdness stands out. Goodbye. # left
+    It is impossible to have bad taste, but many people have none at all. # left
+    Even in an infinite universe, your unique brand of absurdness stands out. # left
+    Goodbye. # left
 	~ EndChat()
 	-> END
 	
@@ -97,7 +102,8 @@ Right now I’m majoring in philosophy, just 2 more years until I can finally be
 * That’s awesome. You seem outdoorsy too. #right
     -> guy3_2
 * So you’re a hippie with the whole outdoors thing. #right
-    To call you a disappointment would imply I expected something from you. I think we would never get along. # left
+    To call you a disappointment would imply I expected something from you. # left
+    I think we would never get along. # left
     ~ EndChat()
     -> END
 
@@ -126,7 +132,7 @@ Hi # left
     -> guy4_1
 *So… tell me about yourself!  # right
     Well.. I like doing sports, especially swimming. That's why I became a lifeguard.  #left 
-    In life, I just roll with the waves. # left
+    In life, I kinda just roll with the waves. # left
     I can show you my swimming skills, only if you have the time I mean# left
     -> guy4_1
 
@@ -172,8 +178,8 @@ Finding love in this day and age is really hard. # right
 		Let’s test our skills this afternoon, shall we? We can grab coffee afterwards, too # left
 		-> guy5_date
 	* [No] No, I haven’t. # right
-		That’s fine, I’ll teach you
-		It’s good for your health, and we can grab coffee afterwards!!
+		That’s fine, I’ll teach you # left
+		It’s good for your health, and we can grab coffee afterwards!! # left
 		-> guy5_date
 
 ==guy5_date==
@@ -381,7 +387,7 @@ So, tell me, why would a girl like you match with a guy like me? # left
 * What’s wrong with you? # right
 	A lot, really. # left
 	If I started talking about that now, you would be stuck here for a long time. #left
-* Why did you match with me? # right
+* Why did you match with me then? # right
 	You have that spark in your eye that’s hard to find nowadays. # left
 	I suppose I didn’t think you’d like me. # left
 - But it doesn’t matter, does it? # left
@@ -639,5 +645,5 @@ Are you seriously on Fumble? # left
 You're mine. Got it? MINE. # left
 No...it doesn't matter. # left
 We'll be together forever. I'll make sure of it. # left
-~ EndChat()
+~ EndStalker()
 -> END

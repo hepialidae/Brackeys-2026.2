@@ -14,6 +14,7 @@ public class FumbleIconScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
         EventManagerScript.instance.OnEndChat += OpenWindow;
         EventManagerScript.instance.OnDateEnd += OpenWindow;
+        EventManagerScript.instance.stalker += CloseWindow;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -35,5 +36,10 @@ public class FumbleIconScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
     private void OpenWindow()
     {
         _window.SetActive(true);
+    }
+
+    private void CloseWindow()
+    {
+        _window.SetActive(false);
     }
 }
