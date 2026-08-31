@@ -16,7 +16,8 @@ Just like any other day. # right
 
 * Well I like reading books too.  # right
     -> guy1knot1
-* Nothing in particular. I just float around doing random stuff I felt like that day. #right
+* Nothing in particular. # right
+    I just float around doing random stuff I felt like that day. #right
     -> guy1knot2
 
 ==guy1knot1==
@@ -332,8 +333,8 @@ Want to grab a drink? # left
 	~ Date()
 	-> END
 * No thanks… # right
-	Average stacy.
-	This app is just high school all over again
+	Average stacy. # left
+	This app is just high school all over again # left
 	~ EndChat()
 	-> END
 
@@ -414,13 +415,13 @@ What do you want? # left
 		-> END
 
 ==guy10_2==
-* Let me be your reason.
-			Why?
-			If you want to…meet me at the park? 
-			Let’s take a stroll along the promenade.
+* Let me be your reason. # right
+    What? # left
+			Do you want to…meet me at the park? # left
+			Let’s take a stroll along the promenade. # left
 			~ Date()
 			-> END
-		* I see.
+		* I see. # right
 			Guess this is where we part. #left
 			~ EndChat()
 			-> END

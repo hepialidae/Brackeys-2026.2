@@ -35,7 +35,7 @@ public class StatusIconScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     private void OpenWindow()
     {
-        bool temp = GamestateManagerScript.instance.profile switch
+        bool temp = GamestateManagerScript.instance.lastProfile switch
         {
             12 => true,
             13 => true,
@@ -54,7 +54,7 @@ public class StatusIconScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     private void ConditionalOpenWindow()
     {
-        bool temp = GamestateManagerScript.instance.lastProfile switch
+        bool temp = GamestateManagerScript.instance.profile switch
         {
             12 => false,
             13 => false,

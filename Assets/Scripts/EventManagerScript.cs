@@ -28,14 +28,14 @@ public class EventManagerScript : MonoBehaviour
         }
     }
 
-    public IntEvent NextDay;
+    public IntEvent NextDay; 
     public void InvokeNextDay(int currentDay)
     {
         NextDay.Invoke(currentDay);
     }
 
-    public event Action stalker;
-    public event Action stalker2;
+    public event Action stalker; // play music, close Fumble, open Messages, close Status
+    public event Action stalker2; // Start chat with stalker (MessageManagerScript)
     public IEnumerator InvokeStalker()
     {
         stalker.Invoke();
@@ -55,8 +55,8 @@ public class EventManagerScript : MonoBehaviour
     //     OnMessageSent.Invoke();
     // }
 
-    public event Action OnMatch;
-    public event Action OnMatch2;
+    public event Action OnMatch; // disable Fumble buttons, open Messages
+    public event Action OnMatch2; // Start new Messages chat + EnterDialogueMode
     public IEnumerator InvokeMatch()
     {
         Debug.Log("OnMatch invoking...");
@@ -183,7 +183,6 @@ public class EventManagerScript : MonoBehaviour
         
         if (temp)
         {
-            Debug.Log("InvokeDateStart Temp: " + temp);
             yield return null;
             OnDateStart3.Invoke();
         }

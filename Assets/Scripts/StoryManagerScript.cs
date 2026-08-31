@@ -103,8 +103,8 @@ public class StoryManagerScript : MonoBehaviour
     {
         neutralEnding_canvas.SetActive(true);
         neutralEnding_director.Play();
-        AudioManagerScript.instance.FadeOut(AudioManagerScript.instance.day3, 0.1f);
-        AudioManagerScript.instance.FadeIn(AudioManagerScript.instance.neutralEnding, 0.3f);
+        AudioManagerScript.instance.FadeOut(AudioManagerScript.instance.day3, 1f);
+        AudioManagerScript.instance.FadeIn(AudioManagerScript.instance.neutralEnding, 2f);
     }
 
     private void GoodEnding()
@@ -114,18 +114,18 @@ public class StoryManagerScript : MonoBehaviour
         switch (GamestateManagerScript.instance.day)
         {
             case 1:
-                AudioManagerScript.instance.FadeOut(AudioManagerScript.instance.day1, 0.1f);
+                AudioManagerScript.instance.FadeOut(AudioManagerScript.instance.day1, 1f);
                 break;
             case 2:
-                AudioManagerScript.instance.FadeOut(AudioManagerScript.instance.day2, 0.1f);
+                AudioManagerScript.instance.FadeOut(AudioManagerScript.instance.day2, 1f);
                 break;
             case 3:
-                AudioManagerScript.instance.FadeOut(AudioManagerScript.instance.day3, 0.1f);
+                AudioManagerScript.instance.FadeOut(AudioManagerScript.instance.day3, 1f);
                 break;
             default:
                 AudioManagerScript.instance.Stop(AudioManagerScript.instance.click);
                 break;
         };
-        AudioManagerScript.instance.FadeIn(AudioManagerScript.instance.goodEnding, 0.3f);
+        AudioManagerScript.instance.FadeIn(AudioManagerScript.instance.goodEnding, 2f);
     }
 }

@@ -34,7 +34,7 @@ public class AudioManagerScript : MonoBehaviour
         EventManagerScript.instance.NextDay.AddListener(NextDay);
         EventManagerScript.instance.stalker += Stalker;
 
-        FadeIn(day1, 0.3f);
+        FadeIn(day1, 2f);
     }
 
     public void Play(AudioSource audio)
@@ -60,40 +60,50 @@ public class AudioManagerScript : MonoBehaviour
 
     private void Stalker()
     {
-        StartCoroutine(FadeOutCoroutine(day1, 0.1f));
-        StartCoroutine(FadeInCoroutine(stalker, 0.3f));
+        StartCoroutine(FadeOutCoroutine(day1, 1f));
+        StartCoroutine(FadeInCoroutine(stalker, 2f));
     }
 
     private void NextDay(int day)
     {
         if (day == 2)
         {
-            StartCoroutine(FadeOutCoroutine(stalker, 0.2f));
-            StartCoroutine(FadeInCoroutine(day2, 0.5f));
+            StartCoroutine(FadeOutCoroutine(stalker, 1f));
+            StartCoroutine(FadeInCoroutine(day2, 2f));
         }
         else
         {
             if (day == 3)
             {
-                StartCoroutine(FadeOutCoroutine(day2, 0.2f));
-                StartCoroutine(FadeInCoroutine(day3, 0.5f));
+                StartCoroutine(FadeOutCoroutine(day2, 1f));
+                StartCoroutine(FadeInCoroutine(day3, 2f));
             }
         }
     }
 
-    private IEnumerator FadeInCoroutine(AudioSource audioSource, float fadeDuration)
+    private IEnumerator FadeInCoroutine(AudioSource audioSource, float fadeDuration, float targetVolume = 1f)
     {
-        float startVolume = audioSource.volume;
+        if (audioSource == null) yield break;
 
+        if (fadeDuration <= 0)
+        {
+            audioSource.volume = targetVolume;
+            yield break;
+        }
+
+        audioSource.Play();
+        audioSource.volume = 0;
         float time = 0;
+
         while (time < fadeDuration)
         {
-            time += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(startVolume, 1, time / fadeDuration);
+            float t = time / fadeDuration;
+            time += Time.unscaledDeltaTime;
+            audioSource.volume = Mathf.Lerp(0, targetVolume, t * t);
             yield return null;
         }
 
-        audioSource.volume = 1;
+        audioSource.volume = targetVolume;
     }
 
     private IEnumerator FadeOutCoroutine(AudioSource audioSource, float fadeDuration)
@@ -103,8 +113,9 @@ public class AudioManagerScript : MonoBehaviour
         float time = 0;
         while (time < fadeDuration)
         {
+            float t = time / fadeDuration;
             time += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(startVolume, 0, time / fadeDuration);
+            audioSource.volume = Mathf.Lerp(startVolume, 0, t * t);
             yield return null;
         }
 

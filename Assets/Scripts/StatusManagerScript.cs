@@ -47,12 +47,12 @@ public class StatusManagerScript : MonoBehaviour
             3 => 0,
             4 => 0,
             5 => 0,
+            6 => 2,
             7 => 2,
             8 => 2,
-            9 => 2,
+            9 => 1,
             10 => 1,
             11 => 1,
-            12 => 1,
             _ => 99
         };
 
