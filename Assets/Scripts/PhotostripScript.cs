@@ -51,6 +51,11 @@ public class PhotostripScript : MonoBehaviour
             }
         }
 
+        if (profile == GamestateManagerScript.instance.designatedProfile)
+        {
+            _img.sprite = photostrips[2];
+        }
+
         AudioManagerScript.instance.Play(AudioManagerScript.instance.photoPrint);
 
         gameObject.transform.DOMoveY(400, 1f).SetEase(Ease.OutBack);

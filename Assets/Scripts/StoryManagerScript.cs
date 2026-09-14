@@ -33,8 +33,8 @@ public class StoryManagerScript : MonoBehaviour
         {
             EventManagerScript.instance.NextDay.AddListener(StartNextDay);
             EventManagerScript.instance.BadEnding += BadEnding;
-            EventManagerScript.instance.NeutralEnding += NeutralEnding;
-            EventManagerScript.instance.GoodEnding += GoodEnding;
+            EventManagerScript.instance.NeutralEnding += StartNeutralEnding;
+            EventManagerScript.instance.GoodEnding += StartGoodEnding;
         }
 
         day2_canvas.SetActive(false);
@@ -99,16 +99,28 @@ public class StoryManagerScript : MonoBehaviour
         AudioManagerScript.instance.Play(AudioManagerScript.instance.scream);
     }
 
-    private void NeutralEnding()
+    private void StartNeutralEnding()
     {
+        StartCoroutine(NeutralEnding());
+    }
+
+    private IEnumerator NeutralEnding()
+    {
+        yield return new WaitForSeconds(0.2f);
         neutralEnding_canvas.SetActive(true);
         neutralEnding_director.Play();
         AudioManagerScript.instance.FadeOut(AudioManagerScript.instance.day3, 1f);
         AudioManagerScript.instance.FadeIn(AudioManagerScript.instance.neutralEnding, 2f);
     }
-
-    private void GoodEnding()
+    
+    private void StartGoodEnding()
     {
+        StartCoroutine(GoodEnding());
+    }
+
+    private IEnumerator GoodEnding()
+    {
+        yield return new WaitForSeconds(1.2f);
         goodEnding_canvas.SetActive(true);
         goodEnding_director.Play();
         switch (GamestateManagerScript.instance.day)

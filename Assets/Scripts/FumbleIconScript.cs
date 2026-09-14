@@ -7,11 +7,15 @@ public class FumbleIconScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
     [SerializeField] private Sprite _hoverSprite;
     private UnityEngine.UI.Image _img;
     [SerializeField] private GameObject _window;
+    [SerializeField] private GameObject _customization;
+    private bool firstTime = true;
 
     void Start()
     {
         _img = GetComponent<UnityEngine.UI.Image>();
 
+        EventManagerScript.instance.OnSubmitFate += OpenWindow;
+        EventManagerScript.instance.OnSubmitFate2 += CloseCustomization;
         EventManagerScript.instance.OnEndChat += OpenWindow;
         EventManagerScript.instance.OnDateEnd += OpenWindow;
         EventManagerScript.instance.stalker += CloseWindow;
@@ -30,7 +34,15 @@ public class FumbleIconScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public void OnClick()
     {
         _img.sprite = _normalSprite;
-        _window.SetActive(true);
+        if (firstTime)
+        {
+            _customization.SetActive(true);
+            firstTime = false;
+        }
+        else
+        {
+            _window.SetActive(true);
+        }
     }
 
     private void OpenWindow()
@@ -41,5 +53,10 @@ public class FumbleIconScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
     private void CloseWindow()
     {
         _window.SetActive(false);
+    }
+
+    private void CloseCustomization()
+    {
+        _customization.SetActive(false);
     }
 }

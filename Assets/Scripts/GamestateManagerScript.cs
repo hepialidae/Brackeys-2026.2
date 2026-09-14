@@ -8,7 +8,7 @@ public class GamestateManagerScript : MonoBehaviour
     public int day { get; private set; } = 1;
     public int profile { get; private set; }
     public int lastProfile { get; private set; }
-    public int designatedProfile { get; private set; } = 4;
+    public int designatedProfile = 99;
     public int rejectCount { get; private set; } = 0;
     public bool datedBeforeStalker = false;
     private int[] day1_guys = new int[6];
@@ -30,21 +30,13 @@ public class GamestateManagerScript : MonoBehaviour
 
     void Start()
     {
-        SetProfileOrder();
-        
+        EventManagerScript.instance.OnSubmitFate += SetProfileOrder;
         EventManagerScript.instance.OnNoMatch += NextGuy;
         EventManagerScript.instance.OnNoMatch += AddRejection;
         EventManagerScript.instance.OnEndChat += NextGuy;
         EventManagerScript.instance.OnEndChat += AddRejection;
         EventManagerScript.instance.OnDateEnd += NextGuy;
         EventManagerScript.instance.NextDay.AddListener(NextDay);
-
-        List<int> day1s = new List<int> { };
-        foreach (int guy in day1_guys)
-        {
-            day1s.Add(guy);
-        }
-        Debug.Log("Day 1: " + string.Join(" ", day1s));
     }
 
     void OnDisable()
@@ -93,7 +85,7 @@ public class GamestateManagerScript : MonoBehaviour
     {
         lastProfile = profile;
         int profileIndex = GetProfileIndex(profile);
-        if (profileIndex <= 5)
+        if (profileIndex <= 4)
         {
             profile = day switch
             {
@@ -128,7 +120,8 @@ public class GamestateManagerScript : MonoBehaviour
     private void SetProfileOrder()
     {
         List<int> good_guys = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
-        List<int> bad_guys = new List<int> { 12, 13, 14, 15, 16, 17 };
+        List<int> bad_guys = new List<int> { 12, 14, 15, 16, 17 };
+        good_guys.Remove(designatedProfile);
 
         // Day 1
         for (int i = 0; i < 6; i++)
@@ -148,9 +141,9 @@ public class GamestateManagerScript : MonoBehaviour
         }
 
         // Day 2
-        for (int j = 0; j < 6; j++)
+        for (int j = 0; j < 5; j++)
         {
-            if (j == 0 || j == 1)
+            if (j == 0)
             {
                 int guy = UnityEngine.Random.Range(0, bad_guys.Count);
                 day2_guys[j] = bad_guys[guy];
@@ -162,10 +155,12 @@ public class GamestateManagerScript : MonoBehaviour
                 day2_guys[j] = good_guys[guy];
                 good_guys.RemoveAt(guy);
             }
+
+            day2_guys[5] = 13;
         }
 
         // Day 3
-        for (int k = 0; k < 6; k++)
+        for (int k = 0; k < 5; k++)
         {
             if (k == 0 || k == 1 || k == 2)
             {
@@ -179,6 +174,15 @@ public class GamestateManagerScript : MonoBehaviour
                 day3_guys[k] = good_guys[guy];
                 good_guys.RemoveAt(guy);
             }
+
+            if (designatedProfile == 99)
+            {
+                Debug.LogWarning("DesignatedProfile not assigned");
+            }
+            else
+            {
+                day3_guys[5] = designatedProfile;
+            }
         }
 
         Shuffle<int>(day1_guys);
@@ -186,5 +190,12 @@ public class GamestateManagerScript : MonoBehaviour
         Shuffle<int>(day3_guys);
 
         profile = day1_guys[0];
+
+        List<int> day3s = new List<int> { };
+        foreach (int guy in day3_guys)
+        {
+            day3s.Add(guy);
+        }
+        Debug.Log("Day 3: " + string.Join(" ", day3s));
     }
 }

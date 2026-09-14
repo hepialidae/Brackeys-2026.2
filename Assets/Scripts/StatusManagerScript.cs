@@ -56,6 +56,11 @@ public class StatusManagerScript : MonoBehaviour
             _ => 99
         };
 
+        if (GamestateManagerScript.instance.profile == GamestateManagerScript.instance.designatedProfile)
+        {
+            temp = 0;
+        }
+
         if (temp != 99)
         {
             Debug.Log("Setting status content...");

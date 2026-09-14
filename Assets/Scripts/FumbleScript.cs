@@ -21,13 +21,9 @@ public class FumbleScript : MonoBehaviour
     [SerializeField] private Button _cross;
     [SerializeField] private Scrollbar _sb;
 
-    void Start()
-    {
-        SetProfile();
-    }
-
     void OnEnable()
     {
+        EventManagerScript.instance.OnSubmitFate2 += SetProfile;
         EventManagerScript.instance.OnMatch += DisableButtons;
         EventManagerScript.instance.OnNoMatch2 += SetProfile;
         EventManagerScript.instance.OnEndChat2 += EnableButtons;
@@ -38,6 +34,7 @@ public class FumbleScript : MonoBehaviour
 
     void OnDisable()
     {
+        EventManagerScript.instance.OnSubmitFate2 += SetProfile;
         EventManagerScript.instance.OnMatch -= DisableButtons;
         EventManagerScript.instance.OnNoMatch2 -= SetProfile;
         EventManagerScript.instance.OnEndChat2 -= EnableButtons;

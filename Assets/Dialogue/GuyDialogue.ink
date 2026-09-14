@@ -645,6 +645,7 @@ Stop trying to block me. # left
 Are you seriously on Fumble? # left
 You're mine. Got it? MINE. # left
 No...it doesn't matter. # left
-We'll be together forever. I'll make sure of it. # left
+I'll be watching you on every date. # left
+You'll come back to me. I know it. # left
 ~ EndStalker()
 -> END

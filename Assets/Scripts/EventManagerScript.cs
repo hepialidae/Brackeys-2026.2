@@ -41,6 +41,7 @@ public class EventManagerScript : MonoBehaviour
         stalker.Invoke();
         yield return null;
         stalker2.Invoke();
+        GamestateManagerScript.instance.datedBeforeStalker = false;
     }
 
     public MessageEvent OnSendMessage;
@@ -235,5 +236,21 @@ public class EventManagerScript : MonoBehaviour
         OnDateEnd.Invoke();
         yield return null;
         OnDateEnd2.Invoke();
+    }
+
+    public IntEvent CustomizationChoice = new IntEvent { };
+    public void InvokeCustomizationChoice(int choice)
+    {
+        CustomizationChoice.Invoke(choice);
+    }
+
+    public event Action OnSubmitFate; // open Fumble, GamestateManagerScript SetProfileOrder
+    public event Action OnSubmitFate2; // close customization, Fumble SetProfile
+    public IEnumerator InvokeSubmitFate()
+    {
+        Debug.Log("SubmitFate invoked");
+        OnSubmitFate.Invoke();
+        yield return null;
+        OnSubmitFate2.Invoke();
     }
 }
