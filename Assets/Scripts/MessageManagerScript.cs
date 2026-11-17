@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using System;
 
 public class MessageManagerScript : MonoBehaviour
 {
@@ -13,7 +12,14 @@ public class MessageManagerScript : MonoBehaviour
     [SerializeField] private GameObject _messageBox;
     [SerializeField] private TextMeshProUGUI _contactNameTMP;
     [SerializeField] private string[] names;
-    [SerializeField] private Scrollbar _sb;
+
+    [Header("Positions")]
+    [SerializeField] private float _highestY;
+    [SerializeField] private float _lowestY;
+    [SerializeField] private float _maxLeft;
+    [SerializeField] private float _maxRight;
+
+    private float _initialLowestY;
     private GameObject _parent;
     private RectTransform _parentTransform;
     public bool IsNewChat { get; private set; } = true;
@@ -25,10 +31,11 @@ public class MessageManagerScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _parent = GameObject.Find("Messages");
+        _parent = GameObject.Find("Messages"); 
         _parentTransform = _parent.GetComponent<RectTransform>();
 
         _parentSpawnPos = _parentTransform.anchoredPosition;
+        _initialLowestY = _lowestY;
     }
 
     void OnEnable()
@@ -61,17 +68,18 @@ public class MessageManagerScript : MonoBehaviour
         {
             if (alignment == "right")
             {
-                spawnPos = new Vector3(314, 1010, 0);
+                spawnPos = new Vector3(_maxRight, _highestY, 0);
             }
             else
             {
                 if (alignment == "left")
                 {
-                    spawnPos = new Vector3(-312, 1010, 0);
+                    spawnPos = new Vector3(_maxLeft, _highestY, 0);
                 }
                 else
                 {
                     Debug.LogWarning("String alignment is not right or left. Alignment: " + alignment);
+                    Destroy(newMessage);
                     return;
                 }
             }
@@ -79,38 +87,29 @@ public class MessageManagerScript : MonoBehaviour
         }
         else
         {
+            RectTransform oldRectTransform = _messageHistory[^1].GetComponent<RectTransform>();
             float height = 0;
-            // calculate _messageHistory / 2
+
             if (_messageHistory.Count > 0)
             {
-                RectTransform oldRectTransform = _messageHistory[^1].GetComponent<RectTransform>();
-                height += oldRectTransform.rect.height * oldRectTransform.lossyScale.y;
+                height += oldRectTransform.rect.height * oldRectTransform.localScale.y; // only calculates old one because anchor is top left
             }
             else 
             {
                 Debug.LogWarning("Message history is empty while starting an existing chat.");
             }
-            
-            // calculate newMessage height / 2
-            height += newMessageTransform.rect.height * newMessageTransform.lossyScale.y;
 
             if (alignment == "right")
             {
-                Vector3[] corners = new Vector3[4];
-                 // [0] bottom-left, [1] top-left, [2] top-right, [3] bottom-right
-                _messageHistory[^1].GetComponent<RectTransform>().GetWorldCorners(corners);
-                float _lastY = _parentTransform.InverseTransformPoint(corners[0]).y;
-                spawnPos = new Vector3(314, _lastY - _spacing - height, 0);
+                float _lastY = oldRectTransform.anchoredPosition.y;
+                spawnPos = new Vector3(_maxRight, _lastY - _spacing - height, 0);
             }
             else
             {
                 if (alignment == "left")
                 {
-                    Vector3[] corners = new Vector3[4];
-                    // [0] bottom-left, [1] top-left, [2] top-right, [3] bottom-right
-                    _messageHistory[^1].GetComponent<RectTransform>().GetWorldCorners(corners);
-                    float _lastY = _parentTransform.InverseTransformPoint(corners[0]).y;
-                    spawnPos = new Vector3(-312, _lastY - _spacing - height, 0);
+                    float _lastY = oldRectTransform.anchoredPosition.y;
+                    spawnPos = new Vector3(_maxLeft, _lastY - _spacing - height, 0);
                 } 
                 else
                 {
@@ -124,10 +123,14 @@ public class MessageManagerScript : MonoBehaviour
         newMessageTransform.anchoredPosition = spawnPos;
         _messageHistory.Add(newMessage);
 
-        if (spawnPos.y <= -1071.5) // out of Messages frame
+        float messageHeight = newMessageTransform.rect.height * newMessageTransform.localScale.y;
+
+        if (spawnPos.y <= _lowestY)
         {
-            float newY = _parentTransform.anchoredPosition.y + newMessageTransform.rect.height * newMessageTransform.lossyScale.y * 5f + _spacing;
-            _parentTransform.anchoredPosition = new Vector2(_parentTransform.anchoredPosition.x, newY);
+            float overflow = _lowestY - (spawnPos.y - messageHeight);
+            _lowestY -= overflow;
+
+            _parentTransform.anchoredPosition += new Vector2(0f, overflow);
         }
 
         // EventManagerScript.instance.InvokeMessageSent();
@@ -145,6 +148,7 @@ public class MessageManagerScript : MonoBehaviour
         _contactNameTMP.text = names[GamestateManagerScript.instance.profile];
         string knotName = "guy" + (GamestateManagerScript.instance.profile + 1);
         _parentTransform.anchoredPosition = _parentSpawnPos;
+        _lowestY = _initialLowestY;
         DialogueManagerScript.GetInstance().EnterDialogueMode(knotName);
     }
 
@@ -158,6 +162,7 @@ public class MessageManagerScript : MonoBehaviour
         IsNewChat = true;
         _contactNameTMP.text = "???";
         _parentTransform.anchoredPosition = _parentSpawnPos;
+        _lowestY = _initialLowestY;
         DialogueManagerScript.GetInstance().EnterDialogueMode("stalker");
     }
 }
