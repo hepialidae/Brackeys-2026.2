@@ -11,7 +11,7 @@ Just like any other day. # right
 	Awesome, I wished I had meaningful hobbies when I was little. # right
 * What books did you read? # right
 	I’m glad you asked! I read all kinds of books but my favorite is Wuthering Heights. # left
-	That’s a lot of books! They aren’t short books either. # right
+	Oh wow, I love that book too! # right
 - How about you, what do you like? # left
 
 * Well I like reading books too.  # right
@@ -21,7 +21,7 @@ Just like any other day. # right
     -> guy1knot2
 
 ==guy1knot1==
-Wow! It’s rare see a kindred spirit here # left
+Wow! It’s rare to see a kindred spirit here # left
 Everyone just stares into the endless void that is phones nowadays. #left 
 I have a library membership card that could be spared. # left
 If you’re free, would you want to go there with me? #left
@@ -91,7 +91,7 @@ I'll introduce you to all the animals!!!! You're gonna love it # left
 Hey there! Your profile looks great. #left
 * So you’re a student currently?.#right
     -> guy3_1
-* Yours sucks.
+* Yours sucks. # right
     It is impossible to have bad taste, but many people have none at all. # left
     Even in an infinite universe, your unique brand of absurdness stands out. # left
     Goodbye. # left
@@ -134,7 +134,7 @@ Hi # left
 *So… tell me about yourself!  # right
     Well.. I like doing sports, especially swimming. That's why I became a lifeguard.  #left 
     In life, I kinda just roll with the waves. # left
-    I can show you my swimming skills, only if you have the time I mean# left
+    I can show you my swimming skills, only if you have the time I mean. # left
     -> guy4_1
 
 ==guy4_1==
@@ -270,21 +270,20 @@ I want a serious relationship # left
 			-> guy6_2_2
 		* Not really # right
 			Oh… # left
-			I guess I assumed too much # left
-			I’m sorry, but I don’t think you’re the right person for me 
-            Video games are a huge part of my life, and I want my soulmate to enjoy them too
+			I’m sorry, but I don’t think you’re the right person for me # left
+            Video games are a huge part of my life, and I want my soulmate to enjoy them too. # left
 			~ EndChat()
 			-> END
 
 ==guy6_2_2==
 * Sure! # right
-				Sweet! I’ll buy you a drink on the way # left
-				~ Date()
-				-> END
-			* No thanks. # right
-				I must’ve assumed too much. # left
-				~ EndChat()
-				-> END
+	Sweet! I’ll buy you a drink on the way # left
+	~ Date()
+	-> END
+* No thanks. # right
+	I must’ve assumed too much. # left
+	~ EndChat()
+	-> END
 
 ===guy7===
 Hey sexy ;) # left

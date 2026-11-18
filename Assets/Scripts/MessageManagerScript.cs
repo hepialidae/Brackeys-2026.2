@@ -124,10 +124,11 @@ public class MessageManagerScript : MonoBehaviour
         _messageHistory.Add(newMessage);
 
         float messageHeight = newMessageTransform.rect.height * newMessageTransform.localScale.y;
+        float messageBottom = spawnPos.y - messageHeight;
 
-        if (spawnPos.y <= _lowestY)
+        if (messageBottom <= _lowestY)
         {
-            float overflow = _lowestY - (spawnPos.y - messageHeight);
+            float overflow = _lowestY - messageBottom;
             _lowestY -= overflow;
 
             _parentTransform.anchoredPosition += new Vector2(0f, overflow);
